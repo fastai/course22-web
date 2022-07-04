@@ -2,7 +2,7 @@ ipynb-filters: [nbprocess_filter]
 
 project:
   type: website
-  output-dir: docs
+  output-dir: _docs
   preview:
     port: 3000
     browser: false
@@ -14,8 +14,8 @@ format:
     toc: true
 
 website:
-  title: "course22_web"
-  description: "Website for Practical Deep Learning for Coders 2022"
+  title: "Practical Deep Learning for Coders"
+  description: "Learn Deep Learning with fastai and PyTorch, 2022"
   execute: 
     enabled: false
   twitter-card: true
@@ -27,9 +27,6 @@ website:
   navbar:
     background: primary
     search: true
-    left:
-      - text: Home
-        file: index.ipynb
     right:
       - icon: github
         href: https://github.com/fastai/course22_web/tree/master/
@@ -39,4 +36,3 @@ website:
 metadata-files: 
   - sidebar.yml
   - custom.yml
-
