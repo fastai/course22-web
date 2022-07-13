@@ -1,0 +1,165 @@
+---
+title: Testimonials
+---
+
+## Praise for the book
+
+- "'Deep Learning is for everyone' we see in Chapter 1, Section 1 of this book, and while other books may make similar claims, this book delivers on the claim. The authors have extensive knowledge of the field but are able to describe it in a way that is perfectly suited for a reader with experience in programming but not in machine learning. The book shows examples first, and only covers theory in the context of concrete examples. For most people, this is the best way to learn. The book does an impressive job of covering the key applications of deep learning in computer vision, natural language processing, and tabular data processing, but also covers key topics like data ethics that some other books miss. Altogether, this is one of the best sources for a programmer to become proficient in deep learning." -- **Peter Norvig**, Director of Research, Google
+- "As artificial intelligence has moved into the era of deep learning, it behooves all of us to learn as much as possible about how it works. Deep Learning for Coders provides a terrific way to initiate that, even for the uninitiated, achieving the feat of simplifying what most of us would consider highly complex" -- **Eric Topol**, Author of *Deep Medicine*; Professor: Scripps Research
+- "If you are looking for a guide that starts at the ground floor and takes you to the cutting edge of research, this is the book for you. Don't let those PhDs have all the fun---you too can use deep learning to solve practical problems." -- **Hal Varian**, Emeritus Professor, UC Berkeley; Chief Economist, Google
+- "Jeremy and Sylvain take you on an interactive--in the most literal sense as each line of code can be run in a notebook--journey through the loss valleys and performance peaks of deep learning. Peppered with thoughtful anecdotes and practical intuitions from years of developing and teaching machine learning, the book strikes the rare balance of communicating deeply technical concepts in a conversational and light-hearted way. In a faithful translation of fast.ai's award-winning online teaching philosophy, the book provides you with state-of-the-art practical tools and the real-world examples to put them to use. Whether you're a beginner or a veteran, this book will fast-track your deep learning journey and take you to new heights--and depths." -- **Sebastian Ruder**, Research Scientist, Deepmind
+- "Jeremy Howard and Sylvain Gugger have authored a bravura of a book that successfully bridges the AI domain with the rest of the world. This work is a singularly substantive and insightful yet absolutely relatable primer on deep learning for anyone who is interested in this domain: a lodestar book amongst many in this genre." -- **Anthony Chang**, Chief Intelligence and Innovation Officer, Children's Hospital of Orange County
+- "How can I 'get' deep learning without getting bogged down? How can I quickly learn the concepts, craft, and tricks-of-the-trade using examples and code? Right here. Don't miss the new locus classicus for hands-on deep learning" -- **Oren Etzioni**, Professor: University of Washington, CEO: Allen Institute for AI
+- "This book is a rare gem- the product of carefully crafted and highly effective teaching, iterated and refined over several years resulting in thousands of happy students. I'm one of them. fast.ai changed my life in a wonderful way, and I'm convinced that they can do the same for you." -- **Jason Antic**, Creator of *DeOldify*
+- "Deep Learning for Coders is an incredible resource. The book wastes no time and teaches how to use Deep Learning effectively in the first few chapters. It then covers the inner workings of ML models and frameworks in a thorough but accessible fashion, which will allow you to understand and build upon them. I wish there was a book like this when I started learning ML, it is an instant classic!" -- **Emmanuel Ameisen**, Author of *Building Machine Learning Powered Applications*
+- "Gugger and Howard have created an ideal resource for anyone who has ever done even a little bit of coding. This book, and the fast.ai courses that go with it, simply and practically demystify deep learning using a hands on approach, with pre-written code that you can explore and re-use. No more slogging through theorems and proofs about abstract concepts. In Chapter 1 you will build your first deep learning model, and by the end of the book you will know how to read and understand the Methods section of any deep learning paper." -- **Curtis Langlotz**, Director, Center for Artificial Intelligence in Medicine and Imaging, Stanford University
+- "This book demystifies the blackest of black boxes: Deep Learning. It enables quick code experimentations with a complete python notebook. It also dives into the ethical implication of Artificial Intelligence, and shows how to avoid it from becoming dystopian." -- **Guillaume Chaslot **, Fellow, Mozilla
+- "As a pianist turned OpenAI researcher, I'm often asked for advice on getting into Deep Learning, and I always point to fastai. This book manages the seemingly impossible - it's a friendly guide to a complicated subject, and yet it's full of cutting-edge gems that even advanced practitioners will love." -- **Christine Payne**, Researcher, OpenAI; Creator of *Musenet* and *Jukebox*
+- "An extremely hands-on, accessible book to help anyone quickly get started on their deep learning project. It's a very clear, easy to follow and honest guide to practical deep learning. Helpful for beginners to executives/managers alike. The guide I wished I had years ago!" -- **Carol Reiley**, Founding President and Chair, Drive.ai
+- "Jeremy and Sylvain's expertise in deep learning, their practical approach to ML, and their many valuable open-source contributions have made then key figures in the PyTorch community. This book, which continues the work that they and the fast.ai community are doing to make ML more accessible, will greatly benefit the entire field of AI." -- **Jerome Pesenti**, Vice President of AI, Facebook
+- "Deep Learning is one of the most important technologies now, responsible for many amazing recent advances in AI. It used to be only for PhDs, but no longer! This book, based on a very popular fast.ai course, makes DL accessible to anyone with programming experience. This book teaches the "whole game", with excellent hands-on examples and a companion interactive site. And PhDs will also learn a lot." -- **Gregory Piatetsky-Shapiro**, President, KDnuggets
+- "An extension of the fast.ai course that I have consistently recommended for years, this book by Jeremy and Sylvain, two of the best Deep Learning experts today, will take you from beginner to qualified practitioner in a matter of months. Finally, something positive has come out of 2020!" -- **Louis Monier**, Founder of Altavista; former Head of Airbnb AI Lab
+- "We recommend this book! Deep Learning for Coders with fastai and PyTorch uses advanced frameworks to move quickly through concrete, real-world artificial intelligence or automation tasks. This leaves time to cover usually neglected topics, like safely taking models to production and a much-needed chapter on data ethics." -- **John Mount and Nina Zumel**, Authors of *Practical Data Science with R*
+- "Deep Learning for Coders is much more than a book, as it is accompanied by fastai, a robust community and powerful machine learning framework built on pytorch.  State of the art methods are provided out of the box with no compromises, including tricks to make one competitive with top industrial research labs with only a fraction of the compute.  The philosophies with respect to education and learning espoused in this book and companion courses have given me the tools to accelerate my personal growth on many dimensions.   Through fastai and this book, I have also learned valuable practices for software engineering, testing, iterative development, and ethical frameworks.  Jeremy is an awe-inspiring individual who is not only among the top data scientists in the world but an impressive mental athlete who has mastered a wide variety of fields, and you get a glimpse into his mind in this book.  Finally, Jeremy and Sylvian are exceptional in that they teach with empathy at all times, which translates into the most approachable book you can buy on deep learning today." -- **Hamel Husain**, Machine Learning Engineer: GitHub; Product Lead: CodeSearchNet
+- "This book is "for Coders" and does not require a PhD. Now, I do have a PhD and I am no coder, so why have I been asked to review this book? Well, to tell you how friggin awesome it really is! Within a couple of pages from Chapter 1 you'll figure out how to get a state-of-the-art network able to classify cat vs. dogs in 4 lines of code and less than 1 minute of computation. Then you land Chapter 2, which takes you from model to production, showing how you can serve a webapp in no time, without any HTML or JavaScript, without owning a server. I think of this book as an onion. A complete package that works using the best possible settings. Then, if some alterations are required, you can peel the outer layer. More tweaks? You can keep discarding shells. Even more? You can go as deep as using bare PyTorch. You'll have three independent voices accompanying you around your journey along this 500 page book, providing you guidance and individual perspective." -- **Alfredo Canziani**, Professor of Computer Science, NYU
+- "Deep Learning for Coders with fastai and Pytorch is an approachable conversationally-driven book that uses the whole game approach to teaching deep learning concepts. The book focuses on getting your hands dirty right out of the gate with real examples and bringing the reader along with reference concepts only as needed. A practitioner may approach the world of deep learning in this book through hands-on examples in the first half, but will find themselves naturally introduced to deeper concepts as they traverse the back half of the book with no pernicious myths left unturned." -- **Josh Patterson**, Patterson Consulting
+- "When your model is not performing as well as you had hoped (almost always), read this book!  It provides a great combination of Jeremy's practical experience and Sylvain theoretical knowledge, and makes the art of deep learning accessible." -- **Ron Kohavi**, VP and Technical Fellow at Airbnb, and co-author of *Trustworthy Online Controlled Experiments: A Practical Guide to A/B Testing*
+- "Jeremy, Sylvain and Rachel are the absolute masters of creating accessible tools and building community around AI. This is yet another installment of the fast.ai team creating an amazing resource that will help onboard the next hundred thousand aspiring AI researchers globally. Congrats!!!" -- **Joe Spisak**, PyTorch Product Manager, Facebook
+
+## In the news
+
+::: {layout="[30,70]"}
+
+![*The Economist*](../images/people/economist.png){fig-align="left"}
+
+"This month fast.ai, an education non-profit based in San Francisco, kicked off the third year of its course in deep learning. Since its inception it has attracted more than 100,000 students, scattered around the globe from India to Nigeria. The course and others like it come with a simple proposition: there is no need to spend years obtaining a phd in order to practise deep learning. Creating software that learns can be taught as a craft, not as a high intellectual pursuit to be undertaken only in an ivory tower. Fast.ai’s course can be completed in just seven weeks.<br/>
+<br/>
+Demystifying the subject, to make it accessible to anyone who wants to learn how to build ai software, is the aim of Jeremy Howard, who founded fast.ai with Rachel Thomas, a mathematician. He says school mathematics is sufficient. “No. Greek. Letters,” Mr Howard intones, thumping the table for punctuation.<br/>
+<br/>
+It is working."<br/>
+[New schemes teach the masses to build AI](https://www.economist.com/business/2018/10/27/new-schemes-teach-the-masses-to-build-ai)
+
+:::
+
+---
+
+::: {layout="[30,70]"}
+
+![*Harvard Business Review*](../images/people/harvard_shield.png){fig-align="left"}
+
+"fast.ai... can actually get smart, motivated students to the point of being able to create industrial-grade ML deployments."<br/>
+[The Business of Artificial Intelligence](https://hbr.org/2017/07/the-business-of-artificial-intelligence)
+
+:::
+
+---
+
+::: {layout="[30,70]"}
+
+![*MIT Tech Review*](../images/people/mit.jpeg){fig-align="left"}
+
+"Students from Fast.ai, a small organization that runs free machine-learning courses online, just created an AI algorithm that outperforms code from Google’s researchers, according to an important benchmark."<br/>
+[A small team of student AI coders beats Google’s machine-learning code](https://www.technologyreview.com/2018/08/10/141098/small-team-of-ai-coders-beats-googles-code/)
+
+:::
+
+---
+
+## Praise for the course
+
+::: {layout="[30,70]"}
+
+![**Christopher Kelly**<br/>*CEO- Nourish, Balance, Thrive*](../images/people/chrisk.jpeg)
+
+I’ve tried (and if I’m honest) failed to scale the steep deep learning curve many times. I’ve bought several books and spent entire weekends watching presentations and workshops on YouTube. My biggest fear was that my financial and time investment in this course would end up in the MOOC graveyard with all the others. Jeremy Howard (the instructor) is amongst the best teachers I’ve known. I realise with hindsight it was the equations that were preventing me from becoming a deep learning practitioner. Jeremy brought me up to speed with the state-of-the-art, and within two weeks I was in the top half of the leaderboard for three Kaggle competitions.
+<br /><br />
+Many of the ideas in computer science are described using a language that makes things sound more complicated than they are. Jeremy even explained some concepts with spreadsheets, which did wonders to reassure me that I did understand what was going on inside my deep learning algorithm. Sometimes half the battle of learning a new skillset is setting up the development environment. Before starting this course, I wasted hours figuring out how to configure a productive environment. I was surprised and delighted by how easy Jeremy made setting up my deep learning environment in the cloud.
+<br /><br />
+I’d recommend this MOOC to anyone looking to get started in the exciting field of deep learning. I could hardly believe my luck when I discovered that the guy I just seen give a TED Talk was teaching!
+
+
+:::
+
+::: {layout="[30,70]"}
+
+![**Sravya Tirukkovalur**<br/>*Vice President, Apache Sentry*](../images/people/sravya.jpg)
+
+If you are looking to venture into the Deep learning field, look no further and take this course. It is very hands-on and adopts a top-down approach, which means everyone irrespective of varying knowledge can get started with implementing Deep learning models immediately. Another major factor why this course is very appealing is its emphasis on social relevance. That is, how can we use this awesome technology to serve the world better?
+
+:::
+
+::: {layout="[30,70]"}
+
+![**Matt O'Brien**<br/>*Data Scientist, UCSF Neurology*](../images/people/mattob.jpeg)
+
+This course filled a gap I couldn't find anywhere else&mdash;there really is no other source where I could learn from a 'code first' perspective. This means you can prod, poke, and cajole these networks in different ways, and see how they respond. You can quickly feel an intuitive perspective growing as you explore.
+
+:::
+
+::: {layout="[30,70]"}
+
+![**Yannet Interian**<br/>*Assistant Professor of Analytics, University of San Francisco*](../images/people/yannet.jpg)
+
+I teach machine learning in a master’s degree program. After this course, I cannot ignore the new developments in deep learning&mdash;I will devote one third of my machine learning course to the subject. Also, I now have the tools to apply deep learning models to real world problems. Some of the best features of this course are the well-documented ipython notebooks containing the tricks needed to be a proficient deep learning practitioner. Overall, I was very impressed with this course.
+
+:::
+
+::: {layout="[30,70]"}
+
+![**Dennis Sakva**<br/>*Energy sector analyst at Dragon Capital*](../images/people/dsakva.png)
+
+Jeremy, your class is absolutely fantastic. I've been pitching it to all my ML friends. The best description of CNNs and RNNs out there. Your Excel spreadsheet on embeddings was an 'aha' moment for me. You're an amazing educator. Thanks!
+
+:::
+
+::: {layout="[30,70]"}
+
+![**Sara Hooker**<br/>*Data Scientist, Udemy*](../images/people/sara.png)
+
+This is a fantastic hands on learning experience. Like many data professionals outside of academia I found deep learning to be intimidating and opaque. This class changed that and empowered me to make deep learning part of the toolkit I use at Udemy. While there are a lot of resources available online about the theoretical underpinnings of deep learning this is the only course I have found that guides students through the implementation of fundamental deep learning frameworks. 
+<br /> <br />
+There were three things that stood out to me that made this class special: 1) you will start coding right away and see the power of neural networks in lesson one, 2) Jeremy spends a lot of the course demystifying the subject, and in the process empowers anyone to get started in the field of deep learning, 3) many ‘tricks’ on how to optimize your architecture are passed down in rapid sequence. Save yourself a lot of time by watching this course, it will take you many more hours of trial and error to learn the same content by yourself.
+
+
+:::
+
+::: {layout="[30,70]"}
+
+![**Janardhan Shetty**<br/>*Senior Big Data Engineer at Salesforce*](../images/people/shetty.jpg)
+
+Sometimes I feared whether I would be able to solve any deep learning problems, as all the research papers I read were very mathy beyond reach of simple intuitive terms. But Jeremy and Rachel (Course Professors) believe in the theory of 'Simple is Powerful', by virtue of which anyone who takes this course will be able to confidently understand the simple techniques behind the 'magic' Deep Learning.
+
+:::
+
+::: {layout="[30,70]"}
+
+![**Dario Fanucchi**<br/>*Co-founder and CTO at Isazi Consulting*](../images/people/dario.png)
+
+Running a company is extremely time intensive, so I was a weary of taking on the commitment of the course. It was definitely worth it, though. It smashed my preconceptions about the technological obstructions to doing deep learning, and showed again and again examples where just a small subset of the training data and just a few epochs of training on standard GPU hardware could get most of the way towards a really good model
+
+:::
+
+::: {layout="[30,70]"}
+
+![**Taro-Shigenori Chiba**<br/>*Organizer of the SF Deep Learning Study Group*](../images/people/taro.png)
+
+It can take years to develop the necessary skills and knowledge for Deep Learning, especially without the support of mentors and peers. Not only did Jeremy teach us the most valuable methods and practices, he provided us with an invaluable community and environment. The course exceeded my expectations and showed me first hand how both Deep Learning and ourselves could change the world for better.
+
+:::
+
+::: {layout="[30,70]"}
+
+![**Robin Kraft (@robinkraft)**<br/>*Product Manager at Planet Labs (Satellites)*](../images/people/robink.jpeg)
+
+It was very empowering to be able to start training a model within minutes downloading the Jupyter notebooks. Jeremy and Rachel were excellent instructors and the content was high quality and enlightening. It was very cool to be able to read blogposts about the latest Deep Learning research and actually be able to understand it. I was surprised to be able to match academic results from just 2 years ago with pretty simple architectures.
+
+:::
+
+::: {layout="[30,70]"}
+
+![**Nichol Bradford**<br/>*Executive Director of Transformative Tech Lab at Sofia University*](../images/people/nichol.jpg)
+
+I'm a CEO, not a coder, so the idea that I'd be able to create a GPU deep learning server in the cloud meant learning a lot of new things&mdash;but with all the help available on the wiki and from the instructors and community on the forum I did it!  Jeremy Howard is an incredible instructor and is able to make what might seem like a difficult subject completely accessible. In addition, he believes in deep learning for wide audiences so has developed a practical, experience based class.  I really enjoyed the classes, and used the videos to watch them all twice. The course covered cutting edge topics, and I now feel comfortable with deep learning concepts and can engage effectively in technical discussions with my data science team.
+
+:::
+

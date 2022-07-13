@@ -1,6 +1,5 @@
 ---
-title: Course details
-description: More information about the course
+title: The course
 ---
 
 This web site covers the book and the 2022 version of the course, which are designed to work closely together. If you haven't yet got the book, you can [buy it here](https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527). It's also [freely available](https://github.com/fastai/fastbook) as interactive Jupyter Notebooks; read on to learn how to access them.
