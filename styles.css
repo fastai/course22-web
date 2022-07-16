@@ -5,14 +5,18 @@
     border-left: 2px solid lightsalmon;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-  }
+}
   
-  .cell-output .sourceCode {
+.cell-output .sourceCode {
     background: none;
     margin-top: 0;
-  }
+}
   
-  .cell > .sourceCode {
+.cell > .sourceCode {
     margin-bottom: 0;
-  }
+}
   
+main ol ol, main ul ul, main ol ul, main ul ol {
+    margin-bottom: 0.5em;
+}
+

@@ -6,13 +6,13 @@ title: "Practical Deep Learning"
 
 ![](images/pencil_sketch.png)
 
-This course is designed for people (or bunnies) with some coding experience who want to learn how to apply deep learning and machine learning to practical problems.<br /><br />Deep learning can do all kinds of amazing things. For instance, all illustrations throughout this website are made with deep learning, using [DALL-E 2](https://openai.com/dall-e-2/).
+This course is designed for people (and bunnies!) with some coding experience who want to learn how to apply deep learning and machine learning to practical problems.<br /><br />Deep learning can do all kinds of amazing things. For instance, all illustrations throughout this website are made with deep learning, using [DALL-E 2](https://openai.com/dall-e-2/).
 
 :::
 
 ## Welcome!
 
-In this course we will cover topics such as how to:
+In this course, which was recorded at the University of Queensland, we cover topics such as how to:
 
 ::: {layout="[30,70]"}
 
