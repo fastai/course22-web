@@ -12,7 +12,7 @@ This course is designed for people (and bunnies!) with some coding experience wh
 
 ## Welcome!
 
-In this course, which was recorded at the University of Queensland, we cover topics such as how to:
+In this course, which was recorded at the [University of Queensland](https://www.uq.edu.au/), we cover topics such as how to:
 
 ::: {layout="[30,70]"}
 

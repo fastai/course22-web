@@ -16,6 +16,8 @@ Click the video below to play. Once it's playing, you'll see a little rectangle 
 
 <iframe width="514" height="289" src="https://www.youtube-nocookie.com/embed/8SF_h3xF3cE?modestbranding=1" title="fast.ai lesson 1" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+This lesson is based partly on [chapter 1](https://github.com/fastai/fastbook/blob/master/01_intro.ipynb) of the [book](https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527).
+
 ## Resources
 
 - [Kaggle](../Resources/kaggle.html) notebooks for this lesson:
