@@ -2,6 +2,8 @@
 title: "Lesson 7"
 ---
 
+## Gradient accumulation and GPU memory
+
 - We have explored the simplest neural net with fully connected linear layers in earlier lectures. In this lecture we will focus on tweaking first and last layers, in the next few weeks on tweaking middle part of the neuralnet.
 - Review of the notebook <em>Road to Top part 2</em> and congrats to fastai students beat Jeremy on 1st and 2nd
 - What are the benefits of using larger models? What are the problems of larger models? (use up GPU memory as GPU is not as clever as CPU to find ways to free itself; so large model needs very expensive GPU) What can we do about it when GPU out of memory? first, to restart the notebook; then Jeremy is about to show us a trick to enable us to train extra large models on Kaggle, Wow!
@@ -11,7 +13,7 @@ title: "Lesson 7"
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/1/8/1873321e4fc2c4572c625303180eec7843967dbb_2_690x210.png" alt="gc" width="690" height="210" srcset="https://forums.fast.ai/uploads/default/optimized/3X/1/8/1873321e4fc2c4572c625303180eec7843967dbb_2_690x210.png, https://forums.fast.ai/uploads/default/optimized/3X/1/8/1873321e4fc2c4572c625303180eec7843967dbb_2_1035x315.png 1.5x, https://forums.fast.ai/uploads/default/original/3X/1/8/1873321e4fc2c4572c625303180eec7843967dbb.png 2x">
 
-- What if a model causes a crash problem of cuda out of memory? What is GradientAccumulation? What is integer divide? (<code>//</code>).
+- What if a model causes a crash problem of cuda out of memory? What is GradientAccumulation? What is integer divide? (`//`).
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/2/6/26d7b272d6e0d5a3a2802981037cba31124bdd43_2_690x230.jpeg" alt="gradientaccumulation" width="690" height="230" srcset="https://forums.fast.ai/uploads/default/optimized/3X/2/6/26d7b272d6e0d5a3a2802981037cba31124bdd43_2_690x230.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/2/6/26d7b272d6e0d5a3a2802981037cba31124bdd43_2_1035x345.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/2/6/26d7b272d6e0d5a3a2802981037cba31124bdd43_2_1380x460.jpeg 2x">
 
@@ -19,15 +21,16 @@ title: "Lesson 7"
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/5/f/5f5de3dc9a36ce6ef7bb0413df0816afad42742f_2_690x158.png" alt="training-loop-without-gradientaccumulation" width="690" height="158" srcset="https://forums.fast.ai/uploads/default/optimized/3X/5/f/5f5de3dc9a36ce6ef7bb0413df0816afad42742f_2_690x158.png, https://forums.fast.ai/uploads/default/optimized/3X/5/f/5f5de3dc9a36ce6ef7bb0413df0816afad42742f_2_1035x237.png 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/5/f/5f5de3dc9a36ce6ef7bb0413df0816afad42742f_2_1380x316.png 2x">
 
-
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/f/9/f9daf4e38da769cb3de7a0c8cdf20c74fd8d18b7_2_690x210.jpeg" alt="gradientaccumulation-explained" width="690" height="210" srcset="https://forums.fast.ai/uploads/default/optimized/3X/f/9/f9daf4e38da769cb3de7a0c8cdf20c74fd8d18b7_2_690x210.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/f/9/f9daf4e38da769cb3de7a0c8cdf20c74fd8d18b7_2_1035x315.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/f/9/f9daf4e38da769cb3de7a0c8cdf20c74fd8d18b7_2_1380x420.jpeg 2x">
 
 - What is the implication of using GradientAccumulation? How much difference is the numeric result between using GradientAccumulation and not? What is the main cause for the difference?
-- More questions: it should be <code>count &gt;= 64</code> in the code above when doing GradientAccumulation; <code>lr_find</code> uses batch size from the DataLoader;
+- More questions: it should be `count &gt;= 64` in the code above when doing GradientAccumulation; `lr_find` uses batch size from the DataLoader;
 - Why not just use a smaller batch size instead of GradientAccumulation? What is the rule of thumb for picking batch sizes? How about adjusting learning rate according to the batch size?
-- How did Jeremy use GradientAccumulation to find out how many <code>accum</code> is needed to run those large models on Kaggle’s 16G GPUs? (<code>accum=1</code> always out of memory, but <code>accum=2</code> works for all large models).
+- How did Jeremy use GradientAccumulation to find out how many `accum` is needed to run those large models on Kaggle’s 16G GPUs? (`accum=1` always out of memory, but `accum=2` works for all large models).
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/c/c/cc4d36bc34d4f4d1c313b96cdf252b9e6c9ac33d_2_690x81.png" alt="gradientaccumulation-large-models" width="690" height="81" srcset="https://forums.fast.ai/uploads/default/optimized/3X/c/c/cc4d36bc34d4f4d1c313b96cdf252b9e6c9ac33d_2_690x81.png, https://forums.fast.ai/uploads/default/optimized/3X/c/c/cc4d36bc34d4f4d1c313b96cdf252b9e6c9ac33d_2_1035x121.png 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/c/c/cc4d36bc34d4f4d1c313b96cdf252b9e6c9ac33d_2_1380x162.png 2x">
+
+## Creating an ensemble
 
 - How did Jeremy put all the models and their settings together for experimenting later? Do we have to use the size of the model’s specification for now and how about in the future?
 
@@ -40,7 +43,7 @@ title: "Lesson 7"
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/a/e/ae921c0da2bf64fe0e3d890f7cf3effe0e8369d5_2_690x304.jpeg" alt="run-all-models-without-out-memory" width="690" height="304" srcset="https://forums.fast.ai/uploads/default/optimized/3X/a/e/ae921c0da2bf64fe0e3d890f7cf3effe0e8369d5_2_690x304.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/a/e/ae921c0da2bf64fe0e3d890f7cf3effe0e8369d5_2_1035x456.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/a/e/ae921c0da2bf64fe0e3d890f7cf3effe0e8369d5_2_1380x608.jpeg 2x">
 
-- Why does Jeremy don’t use <code>seed=42</code> here in training? What is the effect?
+- Why does Jeremy don’t use `seed=42` here in training? What is the effect?
 - What is ensemble or bagging of different good deep learning architectures? Why it is useful?
 - How to do the ensemble of different deep learning models?
 
@@ -59,7 +62,10 @@ title: "Lesson 7"
 - More questions: What is k-fold cross-validation and how can it be applied in this case? Why does Jeremy don’t use it?
 - Are there any drawbacks of GradientAccumulation? Any GPU recommendations?
 - In part 2 Jeremy may cover how to train a smaller model to do well as in large models for faster inference
- How to set the data split and item and batch transformations?
+
+## Multi-target model
+
+- How to set the data split and item and batch transformations?
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/6/7/6708adef38cb0f664442d2e9e3f846fda75a045d_2_690x235.png" alt="datablock-2-labels" width="690" height="235" srcset="https://forums.fast.ai/uploads/default/optimized/3X/6/7/6708adef38cb0f664442d2e9e3f846fda75a045d_2_690x235.png, https://forums.fast.ai/uploads/default/optimized/3X/6/7/6708adef38cb0f664442d2e9e3f846fda75a045d_2_1035x352.png 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/6/7/6708adef38cb0f664442d2e9e3f846fda75a045d_2_1380x470.png 2x">
 
@@ -68,11 +74,13 @@ title: "Lesson 7"
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/4/8/48c068723f1b2f8c4205d02c96d9f5d6e2d65189_2_690x254.jpeg" alt="new-disease-error-rate-loss" width="690" height="254" srcset="https://forums.fast.ai/uploads/default/optimized/3X/4/8/48c068723f1b2f8c4205d02c96d9f5d6e2d65189_2_690x254.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/4/8/48c068723f1b2f8c4205d02c96d9f5d6e2d65189_2_1035x381.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/4/8/48c068723f1b2f8c4205d02c96d9f5d6e2d65189_2_1380x508.jpeg 2x">
 
-
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/4/e/4ee51a1545b8b3f3d8ea0a0b485d45dddc1a2a90_2_690x159.png" alt="new-model" width="690" height="159" srcset="https://forums.fast.ai/uploads/default/optimized/3X/4/e/4ee51a1545b8b3f3d8ea0a0b485d45dddc1a2a90_2_690x159.png, https://forums.fast.ai/uploads/default/optimized/3X/4/e/4ee51a1545b8b3f3d8ea0a0b485d45dddc1a2a90_2_1035x238.png 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/4/e/4ee51a1545b8b3f3d8ea0a0b485d45dddc1a2a90_2_1380x318.png 2x">
 
 - When and how to provide our own loss function? fastai can detect appropriate loss for your datalaoders and use it by default in simple cases. In this special case, How do we create and use our custom loss for the new model?
-- What does <code>F.cross_entropy</code> do exactly? This function belong to the first and last layer, therefore we must understand them. What is the raw output of the model of predicting 5 things?
+
+## Cross-entropy and softmax
+
+- What does `F.cross_entropy` do exactly? This function belong to the first and last layer, therefore we must understand them. What is the raw output of the model of predicting 5 things?
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/5/6/563e70daa1930078e47617c7c2db3897446f3848_2_544x500.jpeg" alt="softmax1" width="544" height="500" srcset="https://forums.fast.ai/uploads/default/optimized/3X/5/6/563e70daa1930078e47617c7c2db3897446f3848_2_544x500.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/5/6/563e70daa1930078e47617c7c2db3897446f3848_2_816x750.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/5/6/563e70daa1930078e47617c7c2db3897446f3848_2_1088x1000.jpeg 2x">
 
@@ -101,6 +109,8 @@ title: "Lesson 7"
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/2/a/2ab6375dd73126e7635687a7fd3110b305eedded_2_690x114.png" alt="cross-entropy-v2" width="690" height="114" srcset="https://forums.fast.ai/uploads/default/optimized/3X/2/a/2ab6375dd73126e7635687a7fd3110b305eedded_2_690x114.png, https://forums.fast.ai/uploads/default/optimized/3X/2/a/2ab6375dd73126e7635687a7fd3110b305eedded_2_1035x171.png 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/2/a/2ab6375dd73126e7635687a7fd3110b305eedded_2_1380x228.png 2x">
 
+## Multi-target activations
+
 - With a dataloader having two targets, our new model needs to be informed what exactly is the loss func, metrics, and the size of output?
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/2/2/222cd9dc5c842f4a39c8046b85ac640c65664f82_2_690x182.jpeg" alt="model-specifications" width="690" height="182" srcset="https://forums.fast.ai/uploads/default/optimized/3X/2/2/222cd9dc5c842f4a39c8046b85ac640c65664f82_2_690x182.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/2/2/222cd9dc5c842f4a39c8046b85ac640c65664f82_2_1035x273.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/2/2/222cd9dc5c842f4a39c8046b85ac640c65664f82_2_1380x364.jpeg 2x">
@@ -109,12 +119,9 @@ title: "Lesson 7"
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/a/8/a877afc66e453b40fd4194e9070c33505470975e_2_690x127.png" alt="model-output-20" width="690" height="127" srcset="https://forums.fast.ai/uploads/default/optimized/3X/a/8/a877afc66e453b40fd4194e9070c33505470975e_2_690x127.png, https://forums.fast.ai/uploads/default/optimized/3X/a/8/a877afc66e453b40fd4194e9070c33505470975e_2_1035x190.png 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/a/8/a877afc66e453b40fd4194e9070c33505470975e_2_1380x254.png 2x">
 
-
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/6/6/665c97da404c8608e3d198db8812c895e5c93660_2_690x151.png" alt="loss-disease" width="690" height="151" srcset="https://forums.fast.ai/uploads/default/optimized/3X/6/6/665c97da404c8608e3d198db8812c895e5c93660_2_690x151.png, https://forums.fast.ai/uploads/default/optimized/3X/6/6/665c97da404c8608e3d198db8812c895e5c93660_2_1035x226.png 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/6/6/665c97da404c8608e3d198db8812c895e5c93660_2_1380x302.png 2x">
 
-
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/7/b/7b91f907777aa2cb90cf68c1878c903c444694f1_2_690x139.png" alt="loss-variety" width="690" height="139" srcset="https://forums.fast.ai/uploads/default/optimized/3X/7/b/7b91f907777aa2cb90cf68c1878c903c444694f1_2_690x139.png, https://forums.fast.ai/uploads/default/optimized/3X/7/b/7b91f907777aa2cb90cf68c1878c903c444694f1_2_1035x208.png 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/7/b/7b91f907777aa2cb90cf68c1878c903c444694f1_2_1380x278.png 2x">
-
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/a/6/a61748d386d2c9bcbcd6f2555a88f3d058529bcf_2_690x132.png" alt="combine-loss" width="690" height="132" srcset="https://forums.fast.ai/uploads/default/optimized/3X/a/6/a61748d386d2c9bcbcd6f2555a88f3d058529bcf_2_690x132.png, https://forums.fast.ai/uploads/default/optimized/3X/a/6/a61748d386d2c9bcbcd6f2555a88f3d058529bcf_2_1035x198.png 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/a/6/a61748d386d2c9bcbcd6f2555a88f3d058529bcf_2_1380x264.png 2x">
 
@@ -126,18 +133,18 @@ title: "Lesson 7"
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/0/f/0f18c85770f6737745434ab2b4812fc73854baa1_2_690x138.png" alt="train-combined-loss-metrics-all" width="690" height="138" srcset="https://forums.fast.ai/uploads/default/optimized/3X/0/f/0f18c85770f6737745434ab2b4812fc73854baa1_2_690x138.png, https://forums.fast.ai/uploads/default/optimized/3X/0/f/0f18c85770f6737745434ab2b4812fc73854baa1_2_1035x207.png 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/0/f/0f18c85770f6737745434ab2b4812fc73854baa1_2_1380x276.png 2x">
 
-
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/a/0/a0ce75a163a66d0c5f00875347ea1abdb3379fb7_2_690x363.jpeg" alt="result-little-worse" width="690" height="363" srcset="https://forums.fast.ai/uploads/default/optimized/3X/a/0/a0ce75a163a66d0c5f00875347ea1abdb3379fb7_2_690x363.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/a/0/a0ce75a163a66d0c5f00875347ea1abdb3379fb7_2_1035x544.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/a/0/a0ce75a163a66d0c5f00875347ea1abdb3379fb7_2_1380x726.jpeg 2x">
 
  How to make multi-task modeling less confusing to you? (build a multi-task for Titanic dataset from scratch; explore and experiment this notebook)
 by Chris Said of binary-cross-entropy?
-- Collaborative filtering deep dive as chp 8 wihtout change. What is the dataset used? Which version of the data we are using? How to read a tsv file using pandas? How to read/understand the dataset content/columns? recommendation system industry and Radek. How does Jeremy prefer to see the data? (cross tabulated) Why the image Jeremy talking about his preferred way of seeing the data has so few empty or missing data?
+
+## Collaborative filtering
+
+- Collaborative filtering deep dive as chp 8 without change. What is the dataset used? Which version of the data we are using? How to read a tsv file using pandas? How to read/understand the dataset content/columns? recommendation system industry and Radek. How does Jeremy prefer to see the data? (cross tabulated) Why the image Jeremy talking about his preferred way of seeing the data has so few empty or missing data?
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/e/c/ec8cf3b5f0af012bc4fca4cf1b82f55fab674aae_2_690x219.jpeg" alt="dataset" width="690" height="219" srcset="https://forums.fast.ai/uploads/default/optimized/3X/e/c/ec8cf3b5f0af012bc4fca4cf1b82f55fab674aae_2_690x219.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/e/c/ec8cf3b5f0af012bc4fca4cf1b82f55fab674aae_2_1035x328.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/e/c/ec8cf3b5f0af012bc4fca4cf1b82f55fab674aae_2_1380x438.jpeg 2x">
 
-
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/a/9/a97bf7cf60d140f3b43748d771fd6a4fedb1cf3b_2_690x332.jpeg" alt="read-tsv" width="690" height="332" srcset="https://forums.fast.ai/uploads/default/optimized/3X/a/9/a97bf7cf60d140f3b43748d771fd6a4fedb1cf3b_2_690x332.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/a/9/a97bf7cf60d140f3b43748d771fd6a4fedb1cf3b_2_1035x498.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/a/9/a97bf7cf60d140f3b43748d771fd6a4fedb1cf3b_2_1380x664.jpeg 2x">
-
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/6/4/64d971d762156b93315e3fd15e9f49cb0987f0e8_2_690x313.jpeg" alt="Jeremy-see-this-way" width="690" height="313" srcset="https://forums.fast.ai/uploads/default/optimized/3X/6/4/64d971d762156b93315e3fd15e9f49cb0987f0e8_2_690x313.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/6/4/64d971d762156b93315e3fd15e9f49cb0987f0e8_2_1035x469.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/6/4/64d971d762156b93315e3fd15e9f49cb0987f0e8_2_1380x626.jpeg 2x">
 
@@ -159,9 +166,7 @@ by Chris Said of binary-cross-entropy?
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/d/c/dc1b0d2e8e766a0750c94881c77bad576fee0fdd_2_690x386.jpeg" alt="latent-factor-for-all-movies" width="690" height="386" srcset="https://forums.fast.ai/uploads/default/optimized/3X/d/c/dc1b0d2e8e766a0750c94881c77bad576fee0fdd_2_690x386.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/d/c/dc1b0d2e8e766a0750c94881c77bad576fee0fdd_2_1035x579.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/d/c/dc1b0d2e8e766a0750c94881c77bad576fee0fdd_2_1380x772.jpeg 2x">
 
-
 <img src="https://forums.fast.ai/uploads/default/original/3X/0/4/043d85eca9ca0e2198ba5f1b6fa629ba470cebfe.jpeg" alt="latent-factors-user" width="554" height="500">
-
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/7/6/7628a9b85d34d0383be3c904f3a7c0c49e9a2484_2_690x405.jpeg" alt="matrix-multiply-dot-product" width="690" height="405" srcset="https://forums.fast.ai/uploads/default/optimized/3X/7/6/7628a9b85d34d0383be3c904f3a7c0c49e9a2484_2_690x405.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/7/6/7628a9b85d34d0383be3c904f3a7c0c49e9a2484_2_1035x607.jpeg 1.5x, https://forums.fast.ai/uploads/default/original/3X/7/6/7628a9b85d34d0383be3c904f3a7c0c49e9a2484.jpeg 2x">
 
@@ -169,12 +174,9 @@ by Chris Said of binary-cross-entropy?
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/e/f/ef6ab1294f1093259e4c5df1c921703361fdd384_2_670x500.jpeg" alt="missing-data-empty" width="670" height="500" srcset="https://forums.fast.ai/uploads/default/optimized/3X/e/f/ef6ab1294f1093259e4c5df1c921703361fdd384_2_670x500.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/e/f/ef6ab1294f1093259e4c5df1c921703361fdd384_2_1005x750.jpeg 1.5x, https://forums.fast.ai/uploads/default/original/3X/e/f/ef6ab1294f1093259e4c5df1c921703361fdd384.jpeg 2x">
 
-
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/0/4/04fbaa36a4c360959c0a826caba9592b0b5514c9_2_523x500.jpeg" alt="make-missing-zero" width="523" height="500" srcset="https://forums.fast.ai/uploads/default/optimized/3X/0/4/04fbaa36a4c360959c0a826caba9592b0b5514c9_2_523x500.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/0/4/04fbaa36a4c360959c0a826caba9592b0b5514c9_2_784x750.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/0/4/04fbaa36a4c360959c0a826caba9592b0b5514c9_2_1046x1000.jpeg 2x">
 
-
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/7/5/755438b324e3799f6ce766c713c6b5036ae8bf81_2_690x362.jpeg" alt="the-loss-pred-label" width="690" height="362" srcset="https://forums.fast.ai/uploads/default/optimized/3X/7/5/755438b324e3799f6ce766c713c6b5036ae8bf81_2_690x362.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/7/5/755438b324e3799f6ce766c713c6b5036ae8bf81_2_1035x543.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/7/5/755438b324e3799f6ce766c713c6b5036ae8bf81_2_1380x724.jpeg 2x">
-
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/0/1/0159ecab4e53556ebdad0b406b13b73805ad6616_2_690x427.jpeg" alt="excel-solver" width="690" height="427" srcset="https://forums.fast.ai/uploads/default/optimized/3X/0/1/0159ecab4e53556ebdad0b406b13b73805ad6616_2_690x427.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/0/1/0159ecab4e53556ebdad0b406b13b73805ad6616_2_1035x640.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/0/1/0159ecab4e53556ebdad0b406b13b73805ad6616_2_1380x854.jpeg 2x">
 
@@ -184,20 +186,19 @@ by Chris Said of binary-cross-entropy?
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/b/a/ba1b5333c95a803967c9b6b3b5922f6200aec599_2_690x326.jpeg" alt="collab-dataset-pytorch" width="690" height="326" srcset="https://forums.fast.ai/uploads/default/optimized/3X/b/a/ba1b5333c95a803967c9b6b3b5922f6200aec599_2_690x326.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/b/a/ba1b5333c95a803967c9b6b3b5922f6200aec599_2_1035x489.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/b/a/ba1b5333c95a803967c9b6b3b5922f6200aec599_2_1380x652.jpeg 2x">
 
+## Embeddings
+
 - What is embedding? What are embedding matrix, user embeddings, and movie embeddings? (embeddings = look up something in an array).  The more intimidating words created in a field, the less intimidating the field actually is.
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/2/c/2c3081a4e2471d0dc86d6a4e76751662ebb27739_2_690x279.jpeg" alt="embeddings" width="690" height="279" srcset="https://forums.fast.ai/uploads/default/optimized/3X/2/c/2c3081a4e2471d0dc86d6a4e76751662ebb27739_2_690x279.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/2/c/2c3081a4e2471d0dc86d6a4e76751662ebb27739_2_1035x418.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/2/c/2c3081a4e2471d0dc86d6a4e76751662ebb27739_2_1380x558.jpeg 2x">
 
-- What does our dataset look like before building a dataloaders on it? How to create a dataloaders for collaborative filtering using <code>CollabDataloaders.from_df</code>? What does its <code>show_batch</code> look like? How do we create the user and movie latent factors algetother?
+- What does our dataset look like before building a dataloaders on it? How to create a dataloaders for collaborative filtering using `CollabDataloaders.from_df`? What does its `show_batch` look like? How do we create the user and movie latent factors algetother?
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/7/5/758eb7bc56f1562e7dbe2525c359cc80ae55cc23_2_610x500.jpeg" alt="dataset-movie-dataloader" width="610" height="500" srcset="https://forums.fast.ai/uploads/default/optimized/3X/7/5/758eb7bc56f1562e7dbe2525c359cc80ae55cc23_2_610x500.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/7/5/758eb7bc56f1562e7dbe2525c359cc80ae55cc23_2_915x750.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/7/5/758eb7bc56f1562e7dbe2525c359cc80ae55cc23_2_1220x1000.jpeg 2x">
 
-
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/8/f/8f28b35c026c563c233282bbe7393cb9af0d4b67_2_690x172.jpeg" alt="build-dataloader-cf" width="690" height="172" srcset="https://forums.fast.ai/uploads/default/optimized/3X/8/f/8f28b35c026c563c233282bbe7393cb9af0d4b67_2_690x172.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/8/f/8f28b35c026c563c233282bbe7393cb9af0d4b67_2_1035x258.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/8/f/8f28b35c026c563c233282bbe7393cb9af0d4b67_2_1380x344.jpeg 2x">
 
-
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/a/9/a9d0bdf31e8734a7c0ed40edd1ef3e36e53c2298_2_690x397.jpeg" alt="cf-show-batch" width="690" height="397" srcset="https://forums.fast.ai/uploads/default/optimized/3X/a/9/a9d0bdf31e8734a7c0ed40edd1ef3e36e53c2298_2_690x397.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/a/9/a9d0bdf31e8734a7c0ed40edd1ef3e36e53c2298_2_1035x595.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/a/9/a9d0bdf31e8734a7c0ed40edd1ef3e36e53c2298_2_1380x794.jpeg 2x">
-
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/7/8/7838f8430473f724a2e3e5156a25f7d6bda54b72_2_690x211.png" alt="create-latent-factors" width="690" height="211" srcset="https://forums.fast.ai/uploads/default/optimized/3X/7/8/7838f8430473f724a2e3e5156a25f7d6bda54b72_2_690x211.png, https://forums.fast.ai/uploads/default/optimized/3X/7/8/7838f8430473f724a2e3e5156a25f7d6bda54b72_2_1035x316.png 1.5x, https://forums.fast.ai/uploads/default/original/3X/7/8/7838f8430473f724a2e3e5156a25f7d6bda54b72.png 2x">
 
@@ -206,28 +207,27 @@ by Chris Said of binary-cross-entropy?
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/1/f/1f254bae3830f4f79cc07b6c16a0511ac63bbfaf_2_690x345.png" alt="look-up-dot-product" width="690" height="345" srcset="https://forums.fast.ai/uploads/default/optimized/3X/1/f/1f254bae3830f4f79cc07b6c16a0511ac63bbfaf_2_690x345.png, https://forums.fast.ai/uploads/default/optimized/3X/1/f/1f254bae3830f4f79cc07b6c16a0511ac63bbfaf_2_1035x517.png 1.5x, https://forums.fast.ai/uploads/default/original/3X/1/f/1f254bae3830f4f79cc07b6c16a0511ac63bbfaf.png 2x">
 
-
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/6/c/6c1dd2073754edda0a1bfe7acc38db80506396ba_2_690x243.jpeg" alt="one-hot-encoding-look-up" width="690" height="243" srcset="https://forums.fast.ai/uploads/default/optimized/3X/6/c/6c1dd2073754edda0a1bfe7acc38db80506396ba_2_690x243.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/6/c/6c1dd2073754edda0a1bfe7acc38db80506396ba_2_1035x364.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/6/c/6c1dd2073754edda0a1bfe7acc38db80506396ba_2_1380x486.jpeg 2x">
-
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/b/0/b0b6205134341c68799a9739bf55c105edc870dd_2_690x373.jpeg" alt="mmultiplication" width="690" height="373" srcset="https://forums.fast.ai/uploads/default/optimized/3X/b/0/b0b6205134341c68799a9739bf55c105edc870dd_2_690x373.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/b/0/b0b6205134341c68799a9739bf55c105edc870dd_2_1035x559.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/b/0/b0b6205134341c68799a9739bf55c105edc870dd_2_1380x746.jpeg 2x">
 
-- How to build a collaborative filtering model from scratch? How do we create a class? (as a model is a class). How do we initiate a class object by <code>__init__</code>? Does <code>__init__</code> tell us what parameters to give in order to create a class instance? How does the class function <code>say</code> do? What is a super class? Where do we put it when creating a class? What does it give us? What is the super class (Module) for pytorch and fastai to use when creating a class? What does the <code>DotProduct</code> class look like?
+## Object oriented programming
+
+- How to build a collaborative filtering model from scratch? How do we create a class? (as a model is a class). How do we initiate a class object by `__init__`? Does `__init__` tell us what parameters to give in order to create a class instance? How does the class function `say` do? What is a super class? Where do we put it when creating a class? What does it give us? What is the super class (Module) for pytorch and fastai to use when creating a class? What does the `DotProduct` class look like?
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/f/3/f39bb45a2a9aeec4c50c2230dbe546bbbd8ef903_2_690x244.jpeg" alt="learn-create-class" width="690" height="244" srcset="https://forums.fast.ai/uploads/default/optimized/3X/f/3/f39bb45a2a9aeec4c50c2230dbe546bbbd8ef903_2_690x244.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/f/3/f39bb45a2a9aeec4c50c2230dbe546bbbd8ef903_2_1035x366.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/f/3/f39bb45a2a9aeec4c50c2230dbe546bbbd8ef903_2_1380x488.jpeg 2x">
 
-
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/5/2/52e85a3c36db128d42865dbb4714073ae54b1415_2_690x157.png" alt="class-example" width="690" height="157" srcset="https://forums.fast.ai/uploads/default/optimized/3X/5/2/52e85a3c36db128d42865dbb4714073ae54b1415_2_690x157.png, https://forums.fast.ai/uploads/default/optimized/3X/5/2/52e85a3c36db128d42865dbb4714073ae54b1415_2_1035x235.png 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/5/2/52e85a3c36db128d42865dbb4714073ae54b1415_2_1380x314.png 2x">
-
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/9/5/958dd964f8d2dc24382de7a0799e03c960a6e43a_2_690x302.jpeg" alt="super-class" width="690" height="302" srcset="https://forums.fast.ai/uploads/default/optimized/3X/9/5/958dd964f8d2dc24382de7a0799e03c960a6e43a_2_690x302.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/9/5/958dd964f8d2dc24382de7a0799e03c960a6e43a_2_1035x453.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/9/5/958dd964f8d2dc24382de7a0799e03c960a6e43a_2_1380x604.jpeg 2x">
 
-
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/4/9/49d96bdbc7ea8dc9621aba7e72e9a901de712307_2_690x215.jpeg" alt="Dot-product-class" width="690" height="215" srcset="https://forums.fast.ai/uploads/default/optimized/3X/4/9/49d96bdbc7ea8dc9621aba7e72e9a901de712307_2_690x215.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/4/9/49d96bdbc7ea8dc9621aba7e72e9a901de712307_2_1035x322.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/4/9/49d96bdbc7ea8dc9621aba7e72e9a901de712307_2_1380x430.jpeg 2x">
 
-- How to understand the <code>forward</code> function in the <code>DotProduct</code> class? What does <code>.sum(dim=1)</code> mean? (sum each row).
+- How to understand the `forward` function in the `DotProduct` class? What does `.sum(dim=1)` mean? (sum each row).
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/7/b/7befe31f450692edb4c008b80ea0b59b2d54b2b8_2_690x220.jpeg" alt="forward-understanding" width="690" height="220" srcset="https://forums.fast.ai/uploads/default/optimized/3X/7/b/7befe31f450692edb4c008b80ea0b59b2d54b2b8_2_690x220.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/7/b/7befe31f450692edb4c008b80ea0b59b2d54b2b8_2_1035x330.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/7/b/7befe31f450692edb4c008b80ea0b59b2d54b2b8_2_1380x440.jpeg 2x">
+
+## Improving collaborative filtering
 
 - How to create a collab learner and start training? The training is very fast even on CPU.
 
@@ -236,7 +236,7 @@ by Chris Said of binary-cross-entropy?
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/9/8/980f8b59b9e8339f4b22f4786d9eb3f8c1c6f627_2_690x262.jpeg" alt="collab-learner" width="690" height="262" srcset="https://forums.fast.ai/uploads/default/optimized/3X/9/8/980f8b59b9e8339f4b22f4786d9eb3f8c1c6f627_2_690x262.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/9/8/980f8b59b9e8339f4b22f4786d9eb3f8c1c6f627_2_1035x393.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/9/8/980f8b59b9e8339f4b22f4786d9eb3f8c1c6f627_2_1380x524.jpeg 2x">
 
-- Why this collab model above is not great? (people who give ratings are people who love movies, they don’t rarely give 1, but many high ratings. Whereas the predictions have many occassions with ratings over 5). Review the sigmoid usage. How can we do sigmoid transformation to the predictions? How does this sigmoid work? Why do we use the up limit of the range <code>5.5</code> instead of <code>5</code>?  Does adding sigmoid always improve the result?
+- Why this collab model above is not great? (people who give ratings are people who love movies, they don’t rarely give 1, but many high ratings. Whereas the predictions have many occassions with ratings over 5). Review the sigmoid usage. How can we do sigmoid transformation to the predictions? How does this sigmoid work? Why do we use the up limit of the range `5.5` instead of `5`?  Does adding sigmoid always improve the result?
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/e/a/ea31571a3891e95cfc3ce1b1b52007dff4b7a94b_2_690x245.jpeg" alt="sigmoid-transform" width="690" height="245" srcset="https://forums.fast.ai/uploads/default/optimized/3X/e/a/ea31571a3891e95cfc3ce1b1b52007dff4b7a94b_2_690x245.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/e/a/ea31571a3891e95cfc3ce1b1b52007dff4b7a94b_2_1035x367.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/e/a/ea31571a3891e95cfc3ce1b1b52007dff4b7a94b_2_1380x490.jpeg 2x">
 
@@ -244,9 +244,7 @@ by Chris Said of binary-cross-entropy?
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/b/b/bbb126f8323ca2c266f1c1867b57c7acb46f4bcd_2_690x282.jpeg" alt="user-tendency" width="690" height="282" srcset="https://forums.fast.ai/uploads/default/optimized/3X/b/b/bbb126f8323ca2c266f1c1867b57c7acb46f4bcd_2_690x282.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/b/b/bbb126f8323ca2c266f1c1867b57c7acb46f4bcd_2_1035x423.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/b/b/bbb126f8323ca2c266f1c1867b57c7acb46f4bcd_2_1380x564.jpeg 2x">
 
-
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/8/8/88b82221d76673d397e4f1e605f2d80134e344c4_2_690x448.jpeg" alt="bias-factor" width="690" height="448" srcset="https://forums.fast.ai/uploads/default/optimized/3X/8/8/88b82221d76673d397e4f1e605f2d80134e344c4_2_690x448.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/8/8/88b82221d76673d397e4f1e605f2d80134e344c4_2_1035x672.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/8/8/88b82221d76673d397e4f1e605f2d80134e344c4_2_1380x896.jpeg 2x">
-
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/0/d/0d68c8c1c93606101295312c8c9e96aaf69f308d_2_690x319.jpeg" alt="adding-biases-to-prediction" width="690" height="319" srcset="https://forums.fast.ai/uploads/default/optimized/3X/0/d/0d68c8c1c93606101295312c8c9e96aaf69f308d_2_690x319.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/0/d/0d68c8c1c93606101295312c8c9e96aaf69f308d_2_1035x478.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/0/d/0d68c8c1c93606101295312c8c9e96aaf69f308d_2_1380x638.jpeg 2x">
 
@@ -254,14 +252,15 @@ by Chris Said of binary-cross-entropy?
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/1/5/15be1b4b512651c13de6f325e98ab67837020696_2_690x268.jpeg" alt="overfitting-collab" width="690" height="268" srcset="https://forums.fast.ai/uploads/default/optimized/3X/1/5/15be1b4b512651c13de6f325e98ab67837020696_2_690x268.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/1/5/15be1b4b512651c13de6f325e98ab67837020696_2_1035x402.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/1/5/15be1b4b512651c13de6f325e98ab67837020696_2_1380x536.jpeg 2x">
 
+## Weight decay
+
 - What is weight decay and How does it help? How to understand weight decay in solving the problem of overfitting?
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/2/b/2ba175a248170dc42de2cb2a3e49a8a3c1afa777_2_690x290.jpeg" alt="weight-decay" width="690" height="290" srcset="https://forums.fast.ai/uploads/default/optimized/3X/2/b/2ba175a248170dc42de2cb2a3e49a8a3c1afa777_2_690x290.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/2/b/2ba175a248170dc42de2cb2a3e49a8a3c1afa777_2_1035x435.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/2/b/2ba175a248170dc42de2cb2a3e49a8a3c1afa777_2_1380x580.jpeg 2x">
 
-- How to actually use weight decay in fastai code? Does fastai have a good default for collaborative filtering like CV? How does Jeremy suggest to find the appropriate <code>wd</code> value for your own dataset?
+- How to actually use weight decay in fastai code? Does fastai have a good default for collaborative filtering like CV? How does Jeremy suggest to find the appropriate `wd` value for your own dataset?
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/2/d/2d240b5fcf7b6b92643497067176a390d41778d7_2_690x268.jpeg" alt="weight-decay2" width="690" height="268" srcset="https://forums.fast.ai/uploads/default/optimized/3X/2/d/2d240b5fcf7b6b92643497067176a390d41778d7_2_690x268.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/2/d/2d240b5fcf7b6b92643497067176a390d41778d7_2_1035x402.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/2/d/2d240b5fcf7b6b92643497067176a390d41778d7_2_1380x536.jpeg 2x">
-
 
 <img src="https://forums.fast.ai/uploads/default/optimized/3X/e/7/e728e7640b79a3ead582d8feefe518e1e8b999d5_2_690x260.jpeg" alt="weight-decay3" width="690" height="260" srcset="https://forums.fast.ai/uploads/default/optimized/3X/e/7/e728e7640b79a3ead582d8feefe518e1e8b999d5_2_690x260.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/e/7/e728e7640b79a3ead582d8feefe518e1e8b999d5_2_1035x390.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/e/7/e728e7640b79a3ead582d8feefe518e1e8b999d5_2_1380x520.jpeg 2x">
 
