@@ -26,6 +26,12 @@ title: Testimonials
 - "When your model is not performing as well as you had hoped (almost always), read this book!  It provides a great combination of Jeremy's practical experience and Sylvain theoretical knowledge, and makes the art of deep learning accessible." -- **Ron Kohavi**, VP and Technical Fellow at Airbnb, and co-author of *Trustworthy Online Controlled Experiments: A Practical Guide to A/B Testing*
 - "Jeremy, Sylvain and Rachel are the absolute masters of creating accessible tools and building community around AI. This is yet another installment of the fast.ai team creating an amazing resource that will help onboard the next hundred thousand aspiring AI researchers globally. Congrats!!!" -- **Joe Spisak**, PyTorch Product Manager, Facebook
 
+:::{.callout-tip}
+## Get started
+
+Start watching [lesson 1](Lessons/lesson1.md) now!
+:::
+
 ## In the news
 
 ::: {layout="[30,70]"}
@@ -64,6 +70,12 @@ It is working."<br/>
 :::
 
 ---
+
+:::{.callout-tip}
+## Get started
+
+Start watching [lesson 1](Lessons/lesson1.md) now!
+:::
 
 ## Praise for the course
 
@@ -163,3 +175,8 @@ I'm a CEO, not a coder, so the idea that I'd be able to create a GPU deep learni
 
 :::
 
+:::{.callout-tip}
+## Get started
+
+Start watching [lesson 1](Lessons/lesson1.md) now!
+:::
