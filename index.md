@@ -91,18 +91,6 @@ Deep learning is a computer technique to extract and transform data–-with use 
 | Lots of data | We've seen record-breaking results with <50 items of data
 | Lots of expensive computers | You can get what you need for state of the art work for free
 
-Deep learning has power, flexibility, and simplicity. That's why we believe it should be applied across many disciplines. These include the social and physical sciences, the arts, medicine, finance, scientific research, and many more. Here's a list of some of the thousands of tasks in different areas at which deep learning, or methods heavily using deep learning, is now the best in the world:
-
-- **Natural language processing (NLP)** Answering questions; speech recognition; summarizing documents; classifying documents; finding names, dates, etc. in documents; searching for articles mentioning a concept
-- **Computer vision** Satellite and drone imagery interpretation (e.g., for disaster resilience); face recognition; image captioning; reading traffic signs; locating pedestrians and vehicles in autonomous vehicles
-- **Medicine** Finding anomalies in radiology images, including CT, MRI, and X-ray images; counting features in pathology slides; measuring features in ultrasounds; diagnosing diabetic retinopathy
-- **Biology** Folding proteins; classifying proteins; many genomics tasks, such as tumor-normal sequencing and classifying clinically actionable genetic mutations; cell classification; analyzing protein/protein interactions
-- **Image generation** Colorizing images; increasing image resolution; removing noise from images; converting images to art in the style of famous artists
-- **Recommendation systems** Web search; product recommendations; home page layout
-- **Playing games** Chess, Go, most Atari video games, and many real-time strategy games
-- **Robotics** Handling objects that are challenging to locate (e.g., transparent, shiny, lacking texture) or hard to pick up
-- **Other applications** Financial and logistical forecasting, text to speech, and much more...
-
 :::{.callout-tip}
 ## Get started
 
@@ -118,6 +106,26 @@ We've completed hundreds of machine learning projects using dozens of different 
 PyTorch works best as a low-level foundation library, providing the basic operations for higher-level functionality. The fastai library one of the most popular libraries for adding this higher-level functionality on top of PyTorch. In this course, as we go deeper and deeper into the foundations of deep learning, we will also go deeper and deeper into the layers of fastai.
 
 Transformers is a popular library focused on natural language processing (NLP) using *transformers models*. In the course you'll see how to create a cutting-edge transfomers model using this library to detect similar concepts in patent applications.
+
+:::{.callout-tip}
+## Get started
+
+Start watching [lesson 1](Lessons/lesson1.md) now!
+:::
+
+## Why deep learning?
+
+Deep learning has power, flexibility, and simplicity. That's why we believe it should be applied across many disciplines. These include the social and physical sciences, the arts, medicine, finance, scientific research, and many more. Here's a list of some of the thousands of tasks in different areas at which deep learning, or methods heavily using deep learning, is now the best in the world:
+
+- **Natural language processing (NLP)** Answering questions; speech recognition; summarizing documents; classifying documents; finding names, dates, etc. in documents; searching for articles mentioning a concept
+- **Computer vision** Satellite and drone imagery interpretation (e.g., for disaster resilience); face recognition; image captioning; reading traffic signs; locating pedestrians and vehicles in autonomous vehicles
+- **Medicine** Finding anomalies in radiology images, including CT, MRI, and X-ray images; counting features in pathology slides; measuring features in ultrasounds; diagnosing diabetic retinopathy
+- **Biology** Folding proteins; classifying proteins; many genomics tasks, such as tumor-normal sequencing and classifying clinically actionable genetic mutations; cell classification; analyzing protein/protein interactions
+- **Image generation** Colorizing images; increasing image resolution; removing noise from images; converting images to art in the style of famous artists
+- **Recommendation systems** Web search; product recommendations; home page layout
+- **Playing games** Chess, Go, most Atari video games, and many real-time strategy games
+- **Robotics** Handling objects that are challenging to locate (e.g., transparent, shiny, lacking texture) or hard to pick up
+- **Other applications** Financial and logistical forecasting, text to speech, and much more...
 
 :::{.callout-tip}
 ## Get started
