@@ -1,3 +1,13 @@
+.quarto-figure>figure {
+  margin-top: 0.5rem;
+}
+
+figcaption.figure-caption{
+  margin-top: 0;
+  margin-left: 1rem;
+  font-style: italic;
+}
+
 .cell-output pre {
     margin-left: 0.8rem;
     margin-top: 0;

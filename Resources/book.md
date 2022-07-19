@@ -6,7 +6,7 @@ title: The book
 
 ![](../images/book.png)
 
-[Deep Learning for Coders with Fastai and PyTorch: AI Applications Without a PhD](https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527) is the book that forms the basis for this course. We recommend reading the book as you complete the course. There's a few ways to read the book -- you can buy it as a paper book or Kindle ebook, or you can read it for free as a Jupyter notebook. The whole book is written as Jupyter notebooks, so you can also execute all the code in the book yourself.<br><br>To go to the interactive Jupyter version of any chapter, click any of the chapter links in the [Colab](#Colab) section immediately below. If you just want to read the book, without interacting with the code, jump to the [nbviewer](#nbviewer) section.
+[Deep Learning for Coders with Fastai and PyTorch: AI Applications Without a PhD](https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527) is the book that forms the basis for this course. We recommend reading the book as you complete the course. There's a few ways to read the book -- you can buy it as a paper book or Kindle ebook, or you can [read it for free online](https://github.com/fastai/fastbook). The whole book is written as Jupyter notebooks, so you can also execute all the code in the book yourself.<br><br>To go to the interactive Jupyter version of any chapter, click any of the chapter links in the [Colab](#Colab) section immediately below. If you just want to read the book, without interacting with the code, jump to the [nbviewer](#nbviewer) section.
 
 :::
 
