@@ -6,7 +6,7 @@ This web site covers the book and the 2022 version of the course, which are desi
 
 ## How do I get started?
 
-To watch the videos, click on the *Lessons* section in the navigation sidebar. The videos are all captioned; while watching the video click the "CC" button to turn them on and off.
+To watch the videos, click on the *Lessons* section in the navigation sidebar. The videos are all captioned; while watching the video click the "CC" button to turn them on and off. To get a sense of what's covered in a lesson, you might want to skim through some lesson notes taken by one of our students (thanks Daniel!). Here's his [lesson 7 notes](Lessons/Summaries/lesson7.md) and [lesson 8 notes](Lessons/Summaries/lesson8.md).
 
 Each video to designed to go with various chapters from the book. The entirety of every chapter of the book is available as an interactive Jupyter Notebook. [Jupyter Notebook](https://jupyter.org/) is the most popular tool for doing data science in Python, for good reason. It is powerful, flexible, and easy to use. We think you will love it! Since the most important thing for learning deep learning is writing code and experimenting, it's important that you have a great platform for experimenting with code.
 
