@@ -25,7 +25,7 @@ This course, recorded at the [University of Queensland](https://www.uq.edu.au/),
 
 :::
 
-There are 7 lessons, and each lesson is around 90 minutes long. The course is based on our [5-star rated popular book](https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527), which is [freely available](Resources/book.md) online.
+There are 7 lessons, and each lesson is around 90 minutes long. The course is based on our [5-star rated book](https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527), which is [freely available](Resources/book.md) online.
 
 You don’t need any special hardware or software — we’ll show you how to use free resources for both building and deploying models. You don’t need any university math either — we’ll teach you the calculus and linear algebra you need during the course.
 
@@ -37,7 +37,7 @@ Start watching [lesson 1](Lessons/lesson1.md) now!
 
 ## Real results
 
-Our videos have been viewed over 6,000,000 times already! Take a look at the [dozens of testimonials](Resources/testimonials.md) about our teaching by alumni, top academics, and industry experts.
+Our videos have been viewed over 6,000,000 times already! Take a look at the [dozens of testimonials](Resources/testimonials.md) about our book and course by alumni, top academics, and industry experts.
 
 ::: {layout="[70,30]"}
 
