@@ -47,7 +47,7 @@ Our videos have been viewed over 6,000,000 times already! Take a look at the [do
 
 :::
 
-By the end of the second lesson, you will have built and deployed your own deep learning model on data you collect. Many students post their course projects to our forum; you can view them here. For instance, if there’s an unknown dinosaur in your backyard, maybe you need this [dinosaur classifier](https://notebooksg.jarvislabs.ai/U7mQvWgvra53-YvTogLgJCfNzgJxRJv238Go2bHoAmHBqQFHoOL1ZFeKDG8gYmnO/)!
+By the end of the second lesson, you will have built and deployed your own deep learning model on data you collect. Many students post their course projects to our forum; you can [view them here](https://forums.fast.ai/t/share-your-work-here/96015). For instance, if there’s an unknown dinosaur in your backyard, maybe you need this [dinosaur classifier](https://notebooksg.jarvislabs.ai/U7mQvWgvra53-YvTogLgJCfNzgJxRJv238Go2bHoAmHBqQFHoOL1ZFeKDG8gYmnO/)!
 
 ![](https://user-images.githubusercontent.com/346999/177054810-3e56fcb1-4fb7-418a-b10b-351bab20bf6b.png)
 
