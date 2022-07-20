@@ -6,7 +6,7 @@ title: "Practical Deep Learning"
 
 ![](images/pencil_sketch.png)
 
-This course is designed for people (and bunnies!) with some coding experience who want to learn how to apply deep learning and machine learning to practical problems.<br /><br />Deep learning can do all kinds of amazing things. For instance, all illustrations throughout this website are made with deep learning, using [DALL-E 2](https://openai.com/dall-e-2/).
+This free course is designed for people (and bunnies!) with some coding experience who want to learn how to apply deep learning and machine learning to practical problems.<br /><br />Deep learning can do all kinds of amazing things. For instance, all illustrations throughout this website are made with deep learning, using [DALL-E 2](https://openai.com/dall-e-2/).
 
 :::
 
@@ -25,7 +25,7 @@ This course, recorded at the [University of Queensland](https://www.uq.edu.au/),
 
 :::
 
-There are 7 lessons, and each lesson is around 90 minutes long. The course is based on our [5-star rated book](https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527), which is [freely available](Resources/book.md) online.
+There are 9 lessons, and each lesson is around 90 minutes long. The course is based on our [5-star rated book](https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527), which is [freely available](Resources/book.md) online.
 
 You don’t need any special hardware or software — we’ll show you how to use free resources for both building and deploying models. You don’t need any university math either — we’ll teach you the calculus and linear algebra you need during the course.
 
@@ -168,7 +168,7 @@ Start watching [lesson 1](Lessons/lesson1.md) now!
 
 ## How do I get started?
 
-To watch the videos, click on the *Lessons* section in the navigation sidebar. The videos are all captioned; while watching the video click the "CC" button to turn them on and off. To get a sense of what's covered in a lesson, you might want to skim through some lesson notes taken by one of our students (thanks Daniel!). Here's his [lesson 7 notes](Lessons/Summaries/lesson7.md) and [lesson 8 notes](Lessons/Summaries/lesson8.md).
+To watch the videos, click on the *Lessons* section in the navigation sidebar. The videos are all captioned; while watching the video click the "CC" button to turn them on and off. To get a sense of what's covered in a lesson, you might want to skim through some lesson notes taken by one of our students (thanks Daniel!). Here's his [lesson 7 notes](Lessons/Summaries/lesson7.md) and [lesson 8 notes](Lessons/Summaries/lesson8.md). You can also access all the videos through [this YouTube playlist](https://www.youtube.com/playlist?list=PLfYUBJiXbdtSvpQjSnJJ_PmDQB_VyT5iU).
 
 Each video to designed to go with various chapters from the book. The entirety of every chapter of the book is available as an interactive Jupyter Notebook. [Jupyter Notebook](https://jupyter.org/) is the most popular tool for doing data science in Python, for good reason. It is powerful, flexible, and easy to use. We think you will love it! Since the most important thing for learning deep learning is writing code and experimenting, it's important that you have a great platform for experimenting with code.
 

@@ -29,7 +29,7 @@ title: Testimonials
 :::{.callout-tip}
 ## Get started
 
-Start watching [lesson 1](Lessons/lesson1.md) now!
+Start watching [lesson 1](../Lessons/lesson1.md) now!
 :::
 
 ## In the news
@@ -74,7 +74,7 @@ It is working."<br/>
 :::{.callout-tip}
 ## Get started
 
-Start watching [lesson 1](Lessons/lesson1.md) now!
+Start watching [lesson 1](../Lessons/lesson1.md) now!
 :::
 
 ## Praise for the course
@@ -92,6 +92,8 @@ I’d recommend this MOOC to anyone looking to get started in the exciting field
 
 :::
 
+---
+
 ::: {layout="[30,70]"}
 
 ![**Sravya Tirukkovalur**<br/>*Vice President, Apache Sentry*](../images/people/sravya.jpg)
@@ -99,6 +101,8 @@ I’d recommend this MOOC to anyone looking to get started in the exciting field
 If you are looking to venture into the Deep learning field, look no further and take this course. It is very hands-on and adopts a top-down approach, which means everyone irrespective of varying knowledge can get started with implementing Deep learning models immediately. Another major factor why this course is very appealing is its emphasis on social relevance. That is, how can we use this awesome technology to serve the world better?
 
 :::
+
+---
 
 ::: {layout="[30,70]"}
 
@@ -108,6 +112,18 @@ This course filled a gap I couldn't find anywhere else&mdash;there really is no 
 
 :::
 
+---
+
+::: {layout="[30,70]"}
+
+![**Helena Sarin**<br/>*AI Artist*](../images/people/helena.png)
+
+fast.ai - it’s truly amazing how many of alumni are now well known players in AI industry, first learning AI coding hands on, through generosity and deep expertise of Rachel and Jeremy 🙏🥰
+
+:::
+
+---
+
 ::: {layout="[30,70]"}
 
 ![**Yannet Interian**<br/>*Assistant Professor of Analytics, University of San Francisco*](../images/people/yannet.jpg)
@@ -115,6 +131,8 @@ This course filled a gap I couldn't find anywhere else&mdash;there really is no 
 I teach machine learning in a master’s degree program. After this course, I cannot ignore the new developments in deep learning&mdash;I will devote one third of my machine learning course to the subject. Also, I now have the tools to apply deep learning models to real world problems. Some of the best features of this course are the well-documented ipython notebooks containing the tricks needed to be a proficient deep learning practitioner. Overall, I was very impressed with this course.
 
 :::
+
+---
 
 ::: {layout="[30,70]"}
 
@@ -124,16 +142,19 @@ Jeremy, your class is absolutely fantastic. I've been pitching it to all my ML f
 
 :::
 
+---
+
 ::: {layout="[30,70]"}
 
-![**Sara Hooker**<br/>*Data Scientist, Udemy*](../images/people/sara.png)
+![**Sara Hooker**<br/>*Researcher, Google Brain*](../images/people/sara.png)
 
 This is a fantastic hands on learning experience. Like many data professionals outside of academia I found deep learning to be intimidating and opaque. This class changed that and empowered me to make deep learning part of the toolkit I use at Udemy. While there are a lot of resources available online about the theoretical underpinnings of deep learning this is the only course I have found that guides students through the implementation of fundamental deep learning frameworks. 
 <br /> <br />
 There were three things that stood out to me that made this class special: 1) you will start coding right away and see the power of neural networks in lesson one, 2) Jeremy spends a lot of the course demystifying the subject, and in the process empowers anyone to get started in the field of deep learning, 3) many ‘tricks’ on how to optimize your architecture are passed down in rapid sequence. Save yourself a lot of time by watching this course, it will take you many more hours of trial and error to learn the same content by yourself.
 
-
 :::
+
+---
 
 ::: {layout="[30,70]"}
 
@@ -143,6 +164,8 @@ Sometimes I feared whether I would be able to solve any deep learning problems, 
 
 :::
 
+---
+
 ::: {layout="[30,70]"}
 
 ![**Dario Fanucchi**<br/>*Co-founder and CTO at Isazi Consulting*](../images/people/dario.png)
@@ -150,6 +173,8 @@ Sometimes I feared whether I would be able to solve any deep learning problems, 
 Running a company is extremely time intensive, so I was a weary of taking on the commitment of the course. It was definitely worth it, though. It smashed my preconceptions about the technological obstructions to doing deep learning, and showed again and again examples where just a small subset of the training data and just a few epochs of training on standard GPU hardware could get most of the way towards a really good model
 
 :::
+
+---
 
 ::: {layout="[30,70]"}
 
@@ -159,6 +184,8 @@ It can take years to develop the necessary skills and knowledge for Deep Learnin
 
 :::
 
+---
+
 ::: {layout="[30,70]"}
 
 ![**Robin Kraft (@robinkraft)**<br/>*Product Manager at Planet Labs (Satellites)*](../images/people/robink.jpeg)
@@ -167,16 +194,18 @@ It was very empowering to be able to start training a model within minutes downl
 
 :::
 
+---
+
 ::: {layout="[30,70]"}
 
 ![**Nichol Bradford**<br/>*Executive Director of Transformative Tech Lab at Sofia University*](../images/people/nichol.jpg)
 
-I'm a CEO, not a coder, so the idea that I'd be able to create a GPU deep learning server in the cloud meant learning a lot of new things&mdash;but with all the help available on the wiki and from the instructors and community on the forum I did it!  Jeremy Howard is an incredible instructor and is able to make what might seem like a difficult subject completely accessible. In addition, he believes in deep learning for wide audiences so has developed a practical, experience based class.  I really enjoyed the classes, and used the videos to watch them all twice. The course covered cutting edge topics, and I now feel comfortable with deep learning concepts and can engage effectively in technical discussions with my data science team.
+I'm a CEO, not a coder, so the idea that I'd be able to create a GPU deep learning server in the cloud meant learning a lot of new things&mdash;but... I did it!  Jeremy Howard is an incredible instructor and is able to make what might seem like a difficult subject completely accessible. In addition, he believes in deep learning for wide audiences so has developed a practical, experience based class.  I really enjoyed the classes, and used the videos to watch them all twice. The course covered cutting edge topics, and I now feel comfortable with deep learning concepts and can engage effectively in technical discussions with my data science team.
 
 :::
 
 :::{.callout-tip}
 ## Get started
 
-Start watching [lesson 1](Lessons/lesson1.md) now!
+Start watching [lesson 1](../Lessons/lesson1.md) now!
 :::
