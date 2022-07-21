@@ -29,7 +29,7 @@ website:
     search: true
     right:
       - icon: github
-        href: https://github.com/fastai/course22_web/tree/master/
+        href: https://github.com/fastai/course22/tree/master/
   sidebar:
     style: "floating"
 
