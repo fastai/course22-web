@@ -6,7 +6,7 @@ title: "8: Convolutions (CNNs)"
 
 ![](../images/excited_code2.png)
 
-Today we finish off our study of collaborative filtering but looking closely at *embeddings*---a critical building block of many deep learning algorithsm. Then we'll dive into *convolutional neural networks* (CNNs) and see how they really work. We've used plenty of CNNs through this course, but we haven't peeked inside them to see what's really going on in there. As well as learning about their most fundamental building block, the *convolution*, we'll also look at pooling, dropout, and more.
+Today we finish off our study of collaborative filtering by looking closely at *embeddings*---a critical building block of many deep learning algorithms. Then we'll dive into *convolutional neural networks* (CNNs) and see how they really work. We've used plenty of CNNs through this course, but we haven't peeked inside them to see what's really going on in there. As well as learning about their most fundamental building block, the *convolution*, we'll also look at pooling, dropout, and more.
 
 :::
 

@@ -12,7 +12,7 @@ This free course is designed for people (and bunnies!) with some coding experien
 
 ## Welcome!
 
-This course, recorded at the [University of Queensland](https://www.uq.edu.au/), covers topics such as how to:
+[Practical Deep Learning for Coders 2022](https://course.fast.ai), recorded at the [University of Queensland](https://www.uq.edu.au/), covers topics such as how to:
 
 ::: {layout="[30,70]"}
 
@@ -69,7 +69,7 @@ I am Jeremy Howard, your guide on this journey. I lead the development of fastai
 
 :::
 
-I am the co-founder, along with Dr. Rachel Thomas, of fast.ai, the organization behind this course. At fast.ai we care a lot about teaching. In this course, I start by showing how to use a complete, working, very usable, state-of-the-art deep learning network to solve real-world problems, using simple, expressive tools. And then we gradually dig deeper and deeper into understanding how those tools are made, and how the tools that make those tools are made, and so on… We always teaching through examples. We ensure that there is a context and a purpose that you can understand intuitively, rather than starting with algebraic symbol manipulation.
+I am the co-founder, along with Dr. Rachel Thomas, of fast.ai, the organization behind this course. At fast.ai we care a lot about teaching. In this course, I start by showing how to use a complete, working, very usable, state-of-the-art deep learning network to solve real-world problems, using simple, expressive tools. And then we gradually dig deeper and deeper into understanding how those tools are made, and how the tools that make those tools are made, and so on… We always teach through examples. We ensure that there is a context and a purpose that you can understand intuitively, rather than starting with algebraic symbol manipulation.
 
 :::{.callout-tip}
 ## Get started
@@ -81,7 +81,7 @@ Start watching [lesson 1](Lessons/lesson1.md) now!
 
 Previous fast.ai courses have been studied by hundreds of thousands of students, from all walks of life, from all parts of the world. Many students have told us about how they've become [multiple gold medal winners](https://forums.fast.ai/t/my-first-gold-medal/54237) of [international machine learning competitions](https://towardsdatascience.com/my-3-year-journey-from-zero-python-to-deep-learning-competition-master-6605c188eec7), [received offers](https://forums.fast.ai/t/how-has-your-journey-been-so-far-learners/6480/2) from top companies, and having [research](https://ui.adsabs.harvard.edu/abs/2020EGUGA..2221465A/abstract) [papers](http://www.ieomsociety.org/ieom2020/papers/37.pdf) [published](https://pubs.rsna.org/doi/abs/10.1148/ryai.2019190113?journalCode=ai). For instance, Isaac Dimitrovsky [told us](https://forums.fast.ai/t/thanks-ra2-dream-challenge-win/76875) that he had "*been playing around with ML for a couple of years without really grokking it... [then] went through the fast.ai part 1 course late last year, and it clicked for me*". He went on to achieve first place in the prestigious international [RA2-DREAM Challenge](https://www.synapse.org/#!Synapse:syn20545111/wiki/594083) competition! He developed a [multistage deep learning method](https://www.synapse.org/#!Synapse:syn21478998/wiki/604432) for scoring radiographic hand and foot joint damage in rheumatoid arthritis, taking advantage of the fastai library.
 
-It doesn't matter if you don't come from a technical or a mathematical background (though it's okay if you do too!); we wrote this course to make deep learning accessible to as many people as possible. The only prerequisite is that you know how to code (a year of experience is enough), preferably in Python, and that you have at least followed a high school math course. The first three chapters have been explicitly written in a way that will allow executives, product managers, etc. to understand the most important things they'll need to know about deep learning -- if that's you, just skip over the code in those sections.
+It doesn't matter if you don't come from a technical or a mathematical background (though it's okay if you do too!); we wrote this course to make deep learning accessible to as many people as possible. The only prerequisite is that you know how to code (a year of experience is enough), preferably in Python, and that you have at least followed a high school math course.
 
 Deep learning is a computer technique to extract and transform data–-with use cases ranging from human speech recognition to animal imagery classification–-by using multiple layers of neural networks. A lot of people assume that you need all kinds of hard-to-find stuff to get great results with deep learning, but as you'll see in this course, those people are wrong. Here's a few things you *absolutely don't need* to do world-class deep learning:
 

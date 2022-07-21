@@ -6,7 +6,7 @@ title: "5: From-scratch model"
 
 ![](../images/bear_sunnies.png)
 
-Today we'll be learning about the mathematical foundations of deep learning: *Stochastic gradient descent* (SGD), and the flexibility of linear functions layered with non-linear activation functions. We'll be focussing particularly on a popular combination called the *Rectified linear function* (ReLU).
+Today we look at how to create a neural network from scratch using Python and PyTorch, and how to implement a training loop for optimising the weights of a model. We build up from a single layer regression model up to a neural net with one hidden layer, and then to a deep learning model. Along the way we'll also look at how we can use a special function called *sigmoid* to make binary classification models easier to train, and we'll also learn about *metrics*.
 
 :::
 
