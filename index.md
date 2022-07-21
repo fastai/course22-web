@@ -2,7 +2,7 @@
 title: "Practical Deep Learning"
 image: https://course.fast.ai/www/social.png
 description: This free course is designed for people with some coding experience who want to learn how to apply deep learning and machine learning to practical problems
-creator: @jeremyphoward
+creator: "@jeremyphoward"
 ---
 
 ::: {layout="[30,70]"}
