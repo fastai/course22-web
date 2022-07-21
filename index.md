@@ -1,5 +1,6 @@
 ---
 title: "Practical Deep Learning"
+image: www/social.png
 ---
 
 ::: {layout="[30,70]"}
