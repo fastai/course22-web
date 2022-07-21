@@ -1,6 +1,6 @@
 ---
 title: "Practical Deep Learning"
-image: /www/social.png
+image: https://course.fast.ai/www/social.png
 ---
 
 ::: {layout="[30,70]"}
