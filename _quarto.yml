@@ -22,14 +22,14 @@ website:
   open-graph: true
   reader-mode: true
   repo-branch: master
-  repo-url: https://github.com/fastai/course22/tree/master/
+  repo-url: https://github.com/fastai/course22
   repo-actions: [issue]
   navbar:
     background: primary
     search: true
     right:
       - icon: github
-        href: https://github.com/fastai/course22/tree/master/
+        href: https://github.com/fastai/course22
   sidebar:
     style: "floating"
 
