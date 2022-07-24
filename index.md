@@ -1,7 +1,7 @@
 ---
 title: "Practical Deep Learning"
 image: https://course.fast.ai/www/social.png
-description: This free course is designed for people with some coding experience who want to learn how to apply deep learning and machine learning to practical problems
+description: A free course designed for people with some coding experience, who want to learn how to apply deep learning and machine learning to practical problems.
 creator: "@jeremyphoward"
 ---
 
@@ -12,6 +12,8 @@ creator: "@jeremyphoward"
 This free course is designed for people (and bunnies!) with some coding experience who want to learn how to apply deep learning and machine learning to practical problems.<br /><br />Deep learning can do all kinds of amazing things. For instance, all illustrations throughout this website are made with deep learning, using [DALL-E 2](https://openai.com/dall-e-2/).
 
 :::
+
+**If you're looking for the previous (2020) version of the course, head over to [course20.fast.ai](https://course20.fast.ai).**
 
 ## Welcome!
 
