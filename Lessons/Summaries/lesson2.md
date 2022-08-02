@@ -11,7 +11,7 @@ title: "Lesson 2"
 - Extra sweets from the book
   - Are there interesting materials/stories covered by the book not the lecture?
   - Where can you find questionnaires and quizzes of the lectures?
-- aiquizze.com
+- aiquizzes.com
   - Where can you get more quizzes of fastai and memorize them forever?
 - Introducing the forum
   - How to make the most out of fastai forum?
