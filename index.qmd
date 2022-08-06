@@ -30,19 +30,19 @@ This free course is designed for people (and bunnies!) with some coding experien
 
 :::
 
-There are 9 lessons, and each lesson is around 90 minutes long. The course is based on our [5-star rated book](https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527), which is [freely available](Resources/book.md) online.
+There are 9 lessons, and each lesson is around 90 minutes long. The course is based on our [5-star rated book](https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527), which is [freely available](Resources/book.qmd) online.
 
 You don’t need any special hardware or software — we’ll show you how to use free resources for both building and deploying models. You don’t need any university math either — we’ll teach you the calculus and linear algebra you need during the course.
 
 :::{.callout-tip}
 ## Get started
 
-Start watching [lesson 1](Lessons/lesson1.md) now!
+Start watching [lesson 1](Lessons/lesson1.qmd) now!
 :::
 
 ## Real results
 
-Our videos have been viewed over 6,000,000 times already! Take a look at the [dozens of testimonials](Resources/testimonials.md) about our book and course by alumni, top academics, and industry experts.
+Our videos have been viewed over 6,000,000 times already! Take a look at the [dozens of testimonials](Resources/testimonials.qmd) about our book and course by alumni, top academics, and industry experts.
 
 ::: {layout="[70,30]"}
 
@@ -61,7 +61,7 @@ Alumni of our course have gone on to jobs at organizations like **Google Brain**
 :::{.callout-tip}
 ## Get started
 
-Start watching [lesson 1](Lessons/lesson1.md) now!
+Start watching [lesson 1](Lessons/lesson1.qmd) now!
 :::
 
 ## Your teacher
@@ -79,7 +79,7 @@ I am the co-founder, along with Dr. Rachel Thomas, of fast.ai, the organization 
 :::{.callout-tip}
 ## Get started
 
-Start watching [lesson 1](Lessons/lesson1.md) now!
+Start watching [lesson 1](Lessons/lesson1.qmd) now!
 :::
 
 ## Is this course for me?
@@ -99,7 +99,7 @@ Deep learning is a computer technique to extract and transform data–-with use 
 :::{.callout-tip}
 ## Get started
 
-Start watching [lesson 1](Lessons/lesson1.md) now!
+Start watching [lesson 1](Lessons/lesson1.qmd) now!
 :::
 
 ## The software you will be using
@@ -115,7 +115,7 @@ Transformers is a popular library focused on natural language processing (NLP) u
 :::{.callout-tip}
 ## Get started
 
-Start watching [lesson 1](Lessons/lesson1.md) now!
+Start watching [lesson 1](Lessons/lesson1.qmd) now!
 :::
 
 ## Why deep learning?
@@ -135,7 +135,7 @@ Deep learning has power, flexibility, and simplicity. That's why we believe it s
 :::{.callout-tip}
 ## Get started
 
-Start watching [lesson 1](Lessons/lesson1.md) now!
+Start watching [lesson 1](Lessons/lesson1.qmd) now!
 :::
 
 ## What you will learn
@@ -168,12 +168,12 @@ Here are some of the techniques covered (don't worry if none of these words mean
 :::{.callout-tip}
 ## Get started
 
-Start watching [lesson 1](Lessons/lesson1.md) now!
+Start watching [lesson 1](Lessons/lesson1.qmd) now!
 :::
 
 ## How do I get started?
 
-To watch the videos, click on the *Lessons* section in the navigation sidebar. The videos are all captioned; while watching the video click the "CC" button to turn them on and off. To get a sense of what's covered in a lesson, you might want to skim through some lesson notes taken by one of our students (thanks Daniel!). Here's his [lesson 7 notes](Lessons/Summaries/lesson7.md) and [lesson 8 notes](Lessons/Summaries/lesson8.md). You can also access all the videos through [this YouTube playlist](https://www.youtube.com/playlist?list=PLfYUBJiXbdtSvpQjSnJJ_PmDQB_VyT5iU).
+To watch the videos, click on the *Lessons* section in the navigation sidebar. The videos are all captioned; while watching the video click the "CC" button to turn them on and off. To get a sense of what's covered in a lesson, you might want to skim through some lesson notes taken by one of our students (thanks Daniel!). Here's his [lesson 7 notes](Lessons/Summaries/lesson7.qmd) and [lesson 8 notes](Lessons/Summaries/lesson8.qmd). You can also access all the videos through [this YouTube playlist](https://www.youtube.com/playlist?list=PLfYUBJiXbdtSvpQjSnJJ_PmDQB_VyT5iU).
 
 Each video to designed to go with various chapters from the book. The entirety of every chapter of the book is available as an interactive Jupyter Notebook. [Jupyter Notebook](https://jupyter.org/) is the most popular tool for doing data science in Python, for good reason. It is powerful, flexible, and easy to use. We think you will love it! Since the most important thing for learning deep learning is writing code and experimenting, it's important that you have a great platform for experimenting with code.
 
@@ -186,5 +186,5 @@ If you need help, there's a [wonderful online community](https://forums.fast.ai/
 :::{.callout-tip}
 ## Get started
 
-Start watching [lesson 1](Lessons/lesson1.md) now!
+Start watching [lesson 1](Lessons/lesson1.qmd) now!
 :::

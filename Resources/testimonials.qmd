@@ -29,7 +29,7 @@ title: Testimonials
 :::{.callout-tip}
 ## Get started
 
-Start watching [lesson 1](../Lessons/lesson1.md) now!
+Start watching [lesson 1](../Lessons/lesson1.qmd) now!
 :::
 
 ## In the news
@@ -74,7 +74,7 @@ It is working."<br/>
 :::{.callout-tip}
 ## Get started
 
-Start watching [lesson 1](../Lessons/lesson1.md) now!
+Start watching [lesson 1](../Lessons/lesson1.qmd) now!
 :::
 
 ## Praise for the course
@@ -207,5 +207,5 @@ I'm a CEO, not a coder, so the idea that I'd be able to create a GPU deep learni
 :::{.callout-tip}
 ## Get started
 
-Start watching [lesson 1](../Lessons/lesson1.md) now!
+Start watching [lesson 1](../Lessons/lesson1.qmd) now!
 :::
