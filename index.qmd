@@ -13,7 +13,7 @@ This free course is designed for people (and bunnies!) with some coding experien
 
 :::
 
-**If you're looking for the previous (2020) version of the course, head over to [course20.fast.ai](https://course20.fast.ai).**
+**Part 2 of this course, [From Deep Learning Foundations to Stable Diffusion](https://www.fast.ai/posts/part2-2022.html), will run live from Oct 11 2022 (Australian time; Oct 11 US time). Scholarships are available for open source authors. To sign up for the course, [click here](https://www.fast.ai/posts/part2-2022-signup.html).**
 
 ## Welcome!
 
