@@ -1,29 +1,25 @@
 name: Deploy to GitHub Pages
-
 on:
   push:
-    branches:
-      - master
-      - main
+    branches: [master]
   workflow_dispatch:
-
 jobs:
   deploy:
-    name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v3
-      - name: Install dependencies and build
+      - name: Install quarto
         run: |
-          python -m pip install --upgrade pip
-          pip install -U nbdev
-          nbdev_docs
+          wget -q $(curl https://latest.fast.ai/pre/quarto-dev/quarto-cli/linux-amd64.deb)
+          sudo dpkg -i quarto*.deb
+          rm quarto*.deb
+          quarto render
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ github.token }}
           force_orphan: true
-          publish_dir: ./_docs
+          publish_dir: ./_site
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
+      

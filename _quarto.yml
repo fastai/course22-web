@@ -1,8 +1,7 @@
-ipynb-filters: [nbdev_filter]
-
 project:
   type: website
-  output-dir: _docs
+  resources:
+    - "www/*"
   preview:
     port: 3000
     browser: false
@@ -16,11 +15,10 @@ format:
 website:
   title: "Practical Deep Learning for Coders"
   description: "Learn Deep Learning with fastai and PyTorch, 2022"
-  execute: 
-    enabled: false
   twitter-card: true
   open-graph: true
   reader-mode: true
+  page-navigation: true
   repo-branch: master
   repo-url: https://github.com/fastai/course22
   repo-actions: [issue]
@@ -33,6 +31,5 @@ website:
   sidebar:
     style: "floating"
 
-metadata-files: 
+metadata-files:
   - sidebar.yml
-  - custom.yml
