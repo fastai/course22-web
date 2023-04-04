@@ -1,0 +1,31 @@
+---
+title: "15: Autoencoders"
+---
+
+We start with a dive into convolutional autoencoders and explore the concept of convolutions. Convolutions help neural networks understand the structure of a problem, making it easier to solve. We learn how to apply a convolution to an image using a kernel and discuss techniques like im2col, padding, and stride. We also create a CNN from scratch using a sequential model and train it on the GPU.
+
+We then attempt to build an autoencoder, but face issues with speed and accuracy. To address these issues, we introduce the concept of a `Learner`, which allows for faster experimentation and better understanding of the model's performance. We create a simple `Learner` and demonstrate its use with a multi-layer perceptron (MLP) model.
+
+Finally, we discuss the importance of understanding Python concepts such as try-except blocks, decorators, getattr, and debugging to reduce cognitive load while learning the framework being built.
+
+## Concepts discussed
+
+- Convolutional autoencoders
+- Convolutions and kernels
+- Im2col technique
+- Padding and stride in CNNs
+- Receptive field
+- Building a CNN from scratch
+- Creating a Learner for faster experimentation
+- Python concepts: try-except blocks, decorators, getattr, and debugging
+- Cognitive load theory in learning
+
+## Video
+
+<iframe width="514" height="289" src="https://www.youtube-nocookie.com/embed/0Hi2r4CaHvk?modestbranding=1" title="fast.ai lesson 15" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Lesson resources
+
+- [Discuss this lesson](https://forums.fast.ai/t/lesson-15-official-topic/102322)
+- [Excel workbooks](https://github.com/fastai/course22/tree/master/xl)
+

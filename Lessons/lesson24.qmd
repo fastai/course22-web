@@ -1,0 +1,21 @@
+---
+title: "24: Attention & transformers"
+---
+
+In this lesson, we wrap up our exploration of the unconditional stable diffusion model. We then implement the unconditional model, train it on fashion MNIST, and discuss the importance of time embedding. We also dive into sine and cosine embeddings, attention mechanisms, self-attention, and multi-headed attention in the context of stable diffusion. We discuss the `rearrange` function, transformers, and their potential use in vision tasks. Lastly, we create a conditional model by adding a label to the input of the UNet model, allowing it to generate images of a specific class.
+
+## Concepts discussed
+
+- Implementing an unconditional stable diffusion model
+- Time embedding and sine/cosine embeddings
+- Self-attention and multi-headed attention
+- Rearrange function
+- Transformers
+- Creating a conditional stable diffusion model
+
+## Video
+
+<iframe width="514" height="289" src="https://www.youtube-nocookie.com/embed/https://www.youtube.com/watch?v=DH5bp6zTPB4?modestbranding=1" title="fast.ai lesson 24" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+- [Discuss this lesson](https://forums.fast.ai/t/lesson-24-official-topic/104358)
+

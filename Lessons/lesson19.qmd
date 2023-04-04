@@ -1,0 +1,25 @@
+---
+title: "19: DDPM and Dropout"
+---
+
+In this lesson, Jeremy introduces Dropout, a technique for improving model performance, and with special guests Tanishq and Johno he discusses Denoising Diffusion Probabilistic Models (DDPM), the underlying foundational approach for diffusion models. The lesson covers the forward and reverse processes involved in DDPM, as well as the implementation of a noise predicting model using a neural network. The team also demonstrate an alternative approach to the implementation and discuss ways to improve training speed.
+
+## Concepts discussed
+
+- Dropout technique for improving model performance
+- Test time dropout callback for measuring model confidence
+- Denoising Diffusion Probabilistic Models (DDPM) for generative modeling
+- Forward and reverse processes in DDPM
+- Implementing a noise predicting model using a neural network
+- Training loop and loss function calculation in DDPM
+- Visualizing noisy images at different timesteps
+- Alternative noise schedules for improved DDPM performance
+- Inheriting from Callback and UNet2DModel for an alternative implementation
+- Experimenting with initialization techniques and optimizers
+- Introduction to mixed precision for faster training
+
+## Video
+
+<iframe width="514" height="289" src="https://www.youtube-nocookie.com/embed/ItyO8s48zdc?modestbranding=1" title="fast.ai lesson 19" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+- [Discuss this lesson](https://forums.fast.ai/t/lesson-19-official-topic/103201)

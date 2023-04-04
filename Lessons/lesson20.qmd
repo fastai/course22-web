@@ -1,0 +1,30 @@
+---
+title: "20: Mixed Precision"
+---
+
+In this lesson, we dive into mixed precision training and experiment with various techniques. We introduce the MixedPrecision callback for PyTorch and explore the Accelerate library from HuggingFace for speeding up training loops. We also learn a sneaky trick for faster data loading and augmenting.
+
+Johno then discusses style transfer using neural networks, extracting features from different layers of a pre-trained network, and introducing content loss and the Gram Matrix. He demonstrates how to combine content loss and style loss to perform style transfer, allowing for a wide range of experimentation and artistic effects.
+
+Lastly, Johno explores Neural Cellular Automata, inspired by Conway's Game of Life and self-organizing systems found in nature. He implements cellular automata using hard-coded filters and neural networks with dense linear layers and convolutional layers. He trains the model using a style loss and an overflow loss, and experiments with different model sizes and loss functions for more complex and creative results.
+
+## Concepts discussed
+
+- Mixed precision training
+- Accelerate library from HuggingFace
+- Collation function
+- Faster data loading
+- Pre-trained neural networks
+- Style transfer
+- Content loss
+- Gram Matrix
+- Neural Cellular Automata
+- Circular padding
+- Gradient normalization
+
+## Video
+
+<iframe width="514" height="289" src="https://www.youtube-nocookie.com/embed/PdNHkTLU2oQ?modestbranding=1" title="fast.ai lesson 20" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+- [Discuss this lesson](https://forums.fast.ai/t/lesson-20-official-topic/103322)
+

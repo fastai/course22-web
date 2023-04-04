@@ -1,0 +1,29 @@
+---
+title: "23: Super-resolution"
+---
+
+In this lesson, we work with Tiny Imagenet to create a super-resolution U-Net model, discussing dataset creation, preprocessing, and data augmentation. The goal of super-resolution is to scale up a low-resolution image to a higher resolution. We train the model using AdamW optimizer and mixed precision, achieving an accuracy of nearly 60%. We also explore the potential for improvement by examining the results of other models on Tiny Imagenet from the Papers with Code website.
+
+We discuss the limitations of using a convolutional neural network for image super-resolution and introduce the concept of U-net, a more efficient architecture for this task. We implement perceptual loss, which involves comparing the features of the output image and the target image at an intermediate layer of a pre-trained classifier model. After training the U-net model with the new loss function, the output images are less blurry and more similar to the target images.
+
+Finally, we discuss the challenges of comparing different models and their outputs. We demonstrate how perceptual loss has improved the results significantly, but also note that there isn't a clear metric to use for comparison. We then move on to gradually unfreezing pre-trained networks, a favorite trick at fast.ai. We copy the weights from the pre-trained model into our model and train it for one epoch with frozen weights for the down path. This results in a significant improvement in loss.
+
+## Concepts discussed
+
+- Tiny Imagenet dataset
+- Creating a super-resolution U-Net model
+- Data preprocessing and augmentation
+- Perceptual loss
+- Gradually unfreezing pre-trained networks
+- Experimenting with cross connections in Unet
+
+## Video
+
+<iframe width="514" height="289" src="https://www.youtube-nocookie.com/embed/z1In7QaG0fg?modestbranding=1" title="fast.ai lesson 23" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Lesson resources
+
+- [Discuss this lesson](https://forums.fast.ai/t/lesson-23-official-topic/103965)
+- [TrivialAugment: Tuning-free Yet State-of-the-Art Data Augmentation](https://arxiv.org/pdf/2103.10158.pdf)
+- [Identity Mappings in Deep Residual Networks](https://arxiv.org/abs/1603.05027)
+

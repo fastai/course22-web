@@ -1,0 +1,29 @@
+---
+title: "14: Matrix multiplication"
+---
+
+In this lesson, we dive into the implementation of the chain rule in neural network training using backpropagation. We refactor our code to make it more efficient and flexible, and explore PyTorch's `nn.Module` and `nn.Sequential`. We also create custom PyTorch modules, build our own implementation of `nn.Module`, and learn about optimizers, DataLoaders, and Datasets. We show how to work with Hugging Face datasets, and introduce the nbdev library.
+
+We look at how to map the code from the previous lesson to the math behind backpropagation. Next, we refactor our code using PyTorch's `nn.Module`, which automatically tracks layers and parameters. We also create a sequential model using `nn.Sequential` and demonstrate how to create custom PyTorch modules. We then introduce the concept of an optimizer, which simplifies the process of updating parameters based on gradients and learning rates. We create a custom SGD optimizer from scratch and explore PyTorch's built-in DataLoader. We also create a proper training loop using PyTorch DataLoader.
+
+Throughout the lesson, we emphasize the importance of understanding the underlying code and not relying solely on other people's code. This allows for greater flexibility and creativity in building custom solutions. We also discuss the use of `**kwargs` and delegates in fastcore, callbacks, and dunder methods in Python's data model.
+
+## Concepts discussed
+
+- Backpropagation and the chain rule
+- Refactoring code for efficiency and flexibility
+- PyTorch's `nn.Module` and `nn.Sequential`
+- Creating custom PyTorch modules
+- Implementing optimizers, DataLoaders, and Datasets
+- Working with Hugging Face datasets
+- Using nbdev to create Python modules from Jupyter notebooks
+- `**kwargs` and delegates
+- Callbacks and dunder methods in Python's data model
+- Building a proper training loop using PyTorch DataLoader
+
+## Video
+
+<iframe width="514" height="289" src="https://www.youtube-nocookie.com/embed/veqj0DsZSXU?modestbranding=1" title="fast.ai lesson 14" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+- [Discuss this lesson](https://forums.fast.ai/t/lesson-14-official-topic/102018)
+

@@ -2,7 +2,7 @@ website:
   sidebar:
     contents:
       - index.qmd
-      - section: Lessons
+      - section: Part 1
         contents:
           - Lessons/lesson1.qmd
           - Lessons/lesson2.qmd
@@ -12,7 +12,7 @@ website:
           - Lessons/lesson6.qmd
           - Lessons/lesson7.qmd
           - Lessons/lesson8.qmd
-          - Lessons/lesson9.qmd
+          - Lessons/lesson8a.qmd
           - section: Summaries
             contents:
               - Lessons/Summaries/lesson1.qmd
@@ -23,6 +23,30 @@ website:
               - Lessons/Summaries/lesson6.qmd
               - Lessons/Summaries/lesson7.qmd
               - Lessons/Summaries/lesson8.qmd
+      - section: Part 2
+        contents:
+          - Lessons/part2.qmd
+          - Lessons/lesson9.qmd
+          - Lessons/lesson10.qmd
+          - Lessons/lesson11.qmd
+          - Lessons/lesson12.qmd
+          - Lessons/lesson13.qmd
+          - Lessons/lesson14.qmd
+          - Lessons/lesson15.qmd
+          - Lessons/lesson16.qmd
+          - Lessons/lesson17.qmd
+          - Lessons/lesson18.qmd
+          - Lessons/lesson19.qmd
+          - Lessons/lesson20.qmd
+          - Lessons/lesson21.qmd
+          - Lessons/lesson22.qmd
+          - Lessons/lesson23.qmd
+          - Lessons/lesson24.qmd
+          - Lessons/lesson25.qmd
+          - text: "Bonus: Lesson 9a"
+            href: https://youtu.be/0_BBRNYInx8
+          - text: "Bonus: Lesson 9b"
+            href: https://youtu.be/mYpjmM7O-30
       - section: Resources
         contents:
           - Resources/book.qmd

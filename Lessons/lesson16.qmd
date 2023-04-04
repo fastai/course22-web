@@ -1,0 +1,35 @@
+---
+title: "16: The Learner framework"
+---
+
+In Lesson 16, we dive into building a flexible training framework called the learner. We start with a basic callbacks Learner, which is an intermediate step towards the flexible learner. We introduce callbacks, which are functions or classes called at specific points during the training process, and demonstrate the creation of a simple callback. We also introduce the concept of CancelFitException, CancelEpochException, and CancelBatchException.
+
+Next, we explore metrics and create a MetricsCB callback to print out metrics during training. We introduce the torcheval library and create a DeviceCB callback to handle moving the model and data to the appropriate device. We refactor the code using a context manager to simplify the code and make it easier to maintain and add callbacks in the future.
+
+We then focus on looking inside the models to diagnose and fix problems during training. We introduce a set_seed function and train a model with a high learning rate of 0.6 to test the stability of the training. Finally, we discuss analyzing the training process by looking at the mean and standard deviation of each layer's activations, using PyTorch hooks and creating histograms of the activations.
+
+## Concepts discussed
+
+- Building a flexible training framework
+- Basic Callbacks Learner
+- Callbacks and exceptions (CancelFitException, CancelEpochException, CancelBatchException)
+- Metrics and MetricsCB callback
+- torcheval library
+- DeviceCB callback
+- Refactoring code with context managers
+- set_seed function
+- Analyzing the training process
+- PyTorch hooks
+- Histograms of activations
+
+## Video
+
+<iframe width="514" height="289" src="https://www.youtube-nocookie.com/embed/9YZaYjRKuEc?modestbranding=1" title="fast.ai lesson 16" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Lesson resources
+
+- [Discuss this lesson](https://forums.fast.ai/t/lesson-16-official-topic/102472)
+- [Cyclical Learning Rates for Training Neural Networks - Leslie Smith](https://arxiv.org/abs/1506.01186)
+- [A disciplined approach to neural network hyper-parameters: Part 1 -- learning rate, batch size, momentum, and weight decay - Leslie Smith](https://arxiv.org/abs/1803.09820)
+- [Methods for Automating Learning Rate Finders - Zach Mueller](https://www.novetta.com/2021/03/learning-rate/)
+

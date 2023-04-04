@@ -1,0 +1,29 @@
+---
+title: "22: Karras et al (2022)"
+---
+
+Jeremy begins this lesson with a discussion of improvements to the DDPM/DDIM implementation. He explores the removal of the concept of an integral number of steps, making the process more continuous. He then delves into predicting the amount of noise in an image without passing the time step as input and modifies the DDIM step to use the predicted alpha bar for each image.
+
+The focus of the lesson is to study and implement the 2022 paper by Karras et al, [Elucidating the Design Space of Diffusion-Based Generative Models](https://arxiv.org/abs/2206.00364). The paper uses *pre-conditioning* to ensure that inputs and targets to the model are scaled to unit variance. The model predicts an interpolated version of the clean image and the noise, depending on the amount of noise present in the input.
+
+The lesson covers various sampling techniques, such as the Euler sampler, Ancestral Euler sampler, and Heuns method. Jeremy explains the concepts behind these methods and demonstrates how they can be used to improve the sampling process. He emphasizes the importance of understanding the underlying concepts and techniques in research papers and demonstrates how these can be applied to improve model performance.
+
+## Concepts discussed
+
+- DDPM/DDIM improvements
+- Predicting the amount of noise in an image
+- Noise scheduling for diffusion models
+- Scaling input and output images
+- Importance of unit variance inputs and outputs
+- Implementation and performance of different samplers
+  - Euler sampler
+  - Ancestral Euler sampler
+  - Heuns method
+  - LMS sampler
+
+## Video
+
+<iframe width="514" height="289" src="https://www.youtube-nocookie.com/embed/6Bta1tXRUfM?modestbranding=1" title="fast.ai lesson 22" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+- [Discuss this lesson](https://forums.fast.ai/t/lesson-22-official-topic/103586)
+

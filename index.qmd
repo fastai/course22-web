@@ -5,6 +5,14 @@ description: A free course designed for people with some coding experience, who 
 creator: "@jeremyphoward"
 ---
 
+:::{.callout-tip}
+## New!
+
+We just launched a new >30 hour video course for more experienced students:
+
+[Practical Deep Learning for Coders part 2: *Deep Learning Foundations to Stable Diffusion*](Lessons/part2.qmd)
+:::
+
 ::: {layout="[30,70]"}
 
 ![](images/pencil_sketch.png)
@@ -15,7 +23,7 @@ This free course is designed for people (and bunnies!) with some coding experien
 
 ## Welcome!
 
-[Practical Deep Learning for Coders 2022](https://course.fast.ai), recorded at the [University of Queensland](https://www.uq.edu.au/), covers topics such as how to:
+Practical Deep Learning for Coders 2022 part 1, recorded at the [University of Queensland](https://www.uq.edu.au/), covers topics such as how to:
 
 ::: {layout="[30,70]"}
 

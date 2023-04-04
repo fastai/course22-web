@@ -1,0 +1,36 @@
+---
+title: "17: Initialization/normalization"
+---
+
+In this lesson, we discuss the importance of weight initialization in neural networks and explore various techniques to improve training. We start by introducing changes to the miniai library and demonstrate the use of HooksCallback and ActivationStats for better visualization. We then dive into the importance of having zero mean and unit standard deviation in neural networks and introduce the Glorot (Xavier) initialization.
+
+We also cover variance, standard deviation, and covariance, and their significance in understanding relationships between data points. We create a novel Generalized ReLU activation function and discuss the Layer-wise Sequential Unit Variance (LSUV) technique for initializing any neural network. We explore normalization techniques, such as Layer Normalization and Batch Normalization, and briefly mention other normalization methods like Instance Norm and Group Norm.
+
+Finally, we experiment with different batch sizes, learning rates, and optimizers like Accelerated SGD, RMSProp, and Adam to improve performance.
+
+## Concepts discussed
+
+- Callback class and TrainLearner subclass
+- HooksCallback and ActivationStats
+- Glorot (Xavier) initialization
+- Variance, standard deviation, and covariance
+- General ReLU activation function
+- Layer-wise Sequential Unit Variance (LSUV)
+- Layer Normalization and Batch Normalization
+- Instance Norm and Group Norm
+- Accelerated SGD, RMSProp, and Adam optimizers
+- Experimenting with batch sizes and learning rates
+
+## Video
+
+<iframe width="514" height="289" src="https://www.youtube-nocookie.com/embed/vGsc_NbU7xc?modestbranding=1" title="fast.ai lesson 17" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Papers from the lesson
+
+- [Discuss this lesson](https://forums.fast.ai/t/lesson-17-official-topic/102602)
+- [Understanding the difficulty of training deep feedforward neural networks - Xavier Glorot, Yoshua Bengio](http://proceedings.mlr.press/v9/glorot10a)
+- [Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification - Kaiming He et al](https://arxiv.org/abs/1502.01852)
+- [LSUV - All you need is a good init - Dmytro Mishkin, Jiri Matas](https://arxiv.org/abs/1511.06422)
+- [Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift - Sergey Ioffe, Christian Szegedy](https://arxiv.org/abs/1502.03167)
+- [Layer Normalization - Ba, Kiros, Hinton](https://arxiv.org/abs/1607.06450)
+

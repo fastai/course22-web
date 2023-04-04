@@ -1,0 +1,18 @@
+---
+title: "25: Latent diffusion"
+---
+
+In this final lesson of the series, Johno begins by showing us how we can convert sounds into pictures, and then take advantage of what we've learned in this course to generate audio! He builds and demonstrates a very effective bird-song generator using this approach.
+
+Then Jeremy wraps up "Stable diffusion from scratch" by showing how to use the latents in a variational encoder as the "pixels" in a regular diffusion model. He also describes an intriguing new idea for students to follow up: what if you use latents for other purposes, such as a classification model? Perhaps this would open up a whole world of possibilities, such as latents-FID, latents-perceptual-loss, and new approaches to diffusion guidance!
+
+## Video
+
+<iframe width="514" height="289" src="https://www.youtube-nocookie.com/embed/8AgZ9jcQ9v8?modestbranding=1" title="fast.ai lesson 25" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Lesson resources
+
+- [Discuss this lesson](https://forums.fast.ai/t/lesson-25-official-topic/104573)
+- [02_diffusion for audio.pynb](https://github.com/huggingface/diffusion-models-class/blob/main/unit4/02_diffusion_for_audio.ipynb)
+- Riffusion: [demo](https://www.riffusion.com/) | [repo](https://github.com/riffusion/riffusion)
+- Notebooks discussed: [nb 29](https://github.com/fastai/course22p2/blob/master/nbs/29_vae.ipynb) | [nb 30](https://github.com/fastai/course22p2/blob/master/nbs/30_lsun_diffusion-latents.ipynb) | [nb 31](https://github.com/fastai/course22p2/blob/master/nbs/31_imgnet_latents-widish.ipynb)

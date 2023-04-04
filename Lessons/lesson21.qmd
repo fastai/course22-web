@@ -1,0 +1,21 @@
+---
+title: "21: DDIM"
+---
+
+In this lesson, Jeremy, Johno, and Tanishq discuss their experiments with the Fashion-MNIST dataset and the CIFAR-10 dataset, a popular dataset for image classification and generative modeling. They introduce Weights and Biases (W&B), an experiment tracking and logging tool that can help manage and visualize the progress of their experiments. The Fréchet Inception Distance (FID) metric is introduced to measure the quality of generated images, and Jeremy demonstrates how to calculate the FID using a custom Fashion-MNIST model. The lesson also covers the Fréchet Inception Distance (FID) and Kernel Inception Distance (KID) metrics for comparing image distributions.
+
+Jeremy explores ways to make the model faster without sacrificing quality. The Denoising Diffusion Implicit Model (DDIM) is introduced as a faster alternative to DDPM, and Jeremy demonstrates how to build a custom DDIM from scratch. The lesson concludes with a discussion on the differences between DDPM and DDIM, as well as the benefits of using DDIM for rapid sampling.
+
+## Concepts discussed
+
+- Weights and Biases (W&B) for experiment tracking
+- Fréchet Inception Distance (FID) metric
+- Kernel Inception Distance (KID) metric
+- Denoising Diffusion Implicit Model (DDIM)
+
+## Video
+
+<iframe width="514" height="289" src="https://www.youtube-nocookie.com/embed/PXiD7ZjOKhA?modestbranding=1" title="fast.ai lesson 21" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+- [Discuss this lesson](https://forums.fast.ai/t/lesson-21-official-topic/103528)
+

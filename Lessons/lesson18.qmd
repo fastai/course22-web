@@ -1,0 +1,43 @@
+---
+title: "18: Accelerated SGD & ResNets"
+---
+
+In this lesson, we dive into various stochastic gradient descent (SGD) accelerated approaches, such as momentum, RMSProp, and Adam. We start by experimenting with these techniques in Microsoft Excel, creating a simple linear regression problem and applying the different approaches to solve it. We also introduce learning rate annealing and show how to implement it in Excel. Next, we explore learning rate schedulers in PyTorch, focusing on Cosine Annealing and how to work with PyTorch optimizers. We create a learner with a single batch callback and fit the model to obtain an optimizer. We then explore the attributes of the optimizer and explain the concept of parameter groups.
+
+We continue by implementing the OneCycleLR scheduler from PyTorch, which adjusts the learning rate and momentum during training. We also discuss how to improve the architecture of a neural network by making it deeper and wider, introducing ResNets and the concept of residual connections. Finally, we explore various ResNet architectures from the PyTorch Image Models (timm) library and experiment with data augmentation techniques, such as random erasing and test time augmentation.
+
+## Concepts discussed
+
+- Stochastic gradient descent (SGD) accelerated approaches
+  - Momentum
+  - RMSProp
+  - Adam
+- Learning rate annealing
+- PyTorch learning rate schedulers
+  - Cosine Annealing
+  - OneCycleLR
+- Working with PyTorch optimizers
+- Neural network architecture improvements
+  - Deeper and wider networks
+  - ResNets
+  - Residual connections
+- Data augmentation techniques
+  - Random erasing
+  - Test time augmentation
+- Creating custom schedulers and experimenting with model performance
+
+## Video
+
+<iframe width="514" height="289" src="https://www.youtube-nocookie.com/embed/nlVOG2Nzc3k?modestbranding=1" title="fast.ai lesson 18" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Lesson resources
+
+- [Discuss this lesson](https://forums.fast.ai/t/lesson-18-official-topic/102750)
+- The course's [fashion mnist challenge](https://forums.fast.ai/t/a-challenge-for-you-all/102656) topic
+- Excel [optimisers spreadsheet](https://github.com/fastai/course22p2/blob/master/xl/graddesc.xlsm)
+- Papers
+   - [Cyclical Learning Rates for Training Neural Networks](https://arxiv.org/abs/1506.01186)
+   - [Fixup Initialization: Residual Learning Without Normalization](https://arxiv.org/abs/1901.09321)
+   - [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385)
+- Fashion-MNIST Benchmark [Papers with Code](https://paperswithcode.com/sota/image-classification-on-fashion-mnist)
+
