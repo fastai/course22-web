@@ -1,5 +1,6 @@
 ---
-title: "Overview"
+title: "Part 2 overview"
+image: /images/course2022p2l1.jpg
 ---
 
 In this course, containing over 30 hours of video content, we implement the astounding [Stable Diffusion](https://stability.ai/blog/stable-diffusion-public-release) algorithm from scratch! That's the [killer app](https://www.pcworld.com/article/916785/creating-ai-art-local-pc-stable-diffusion.html) that made the [internet freak out](https://devops.com/stable-diffusion-public-richixbw/), and caused the media to say "[you may never believe what you see online again](https://arstechnica.com/information-technology/2022/09/with-stable-diffusion-you-may-never-believe-what-you-see-online-again/)".

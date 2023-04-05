@@ -1,5 +1,6 @@
 ---
 title: "9: Stable Diffusion"
+image: /images/course2022p2l1.jpg
 ---
 
 ## What you need to know
