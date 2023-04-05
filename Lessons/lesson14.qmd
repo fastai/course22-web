@@ -1,5 +1,5 @@
 ---
-title: "14: Matrix multiplication"
+title: "14: Backpropagation"
 ---
 
 In this lesson, we dive into the implementation of the chain rule in neural network training using backpropagation. We refactor our code to make it more efficient and flexible, and explore PyTorch's `nn.Module` and `nn.Sequential`. We also create custom PyTorch modules, build our own implementation of `nn.Module`, and learn about optimizers, DataLoaders, and Datasets. We show how to work with Hugging Face datasets, and introduce the nbdev library.
