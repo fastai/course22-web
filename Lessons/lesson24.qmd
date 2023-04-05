@@ -15,7 +15,7 @@ In this lesson, we wrap up our exploration of the unconditional stable diffusion
 
 ## Video
 
-<iframe width="514" height="289" src="https://www.youtube-nocookie.com/embed/https://www.youtube.com/watch?v=DH5bp6zTPB4?modestbranding=1" title="fast.ai lesson 24" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="514" height="289" src="https://www.youtube-nocookie.com/embed/DH5bp6zTPB4?modestbranding=1" title="fast.ai lesson 24" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 - [Discuss this lesson](https://forums.fast.ai/t/lesson-24-official-topic/104358)
 
