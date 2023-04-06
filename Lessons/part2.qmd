@@ -89,7 +89,7 @@ Here's a list of all the stuff that you'll learn in detail and build from scratc
     - Frobenius norm
     - Broadcasting in deep learning and machine learning code
     - Matrix multiplication
-    - Einstein summation notation and torch.einsum
+    - Einstein summation notation and `torch.einsum`
     - GPU acceleration and CUDA
     - Numba
   - Calculus
