@@ -15,4 +15,5 @@ Then Jeremy wraps up "Stable diffusion from scratch" by showing how to use the l
 - [Discuss this lesson](https://forums.fast.ai/t/lesson-25-official-topic/104573)
 - [02_diffusion for audio.pynb](https://github.com/huggingface/diffusion-models-class/blob/main/unit4/02_diffusion_for_audio.ipynb)
 - Riffusion: [demo](https://www.riffusion.com/) | [repo](https://github.com/riffusion/riffusion)
-- Notebooks discussed: [nb 29](https://github.com/fastai/course22p2/blob/master/nbs/29_vae.ipynb) | [nb 30](https://github.com/fastai/course22p2/blob/master/nbs/30_lsun_diffusion-latents.ipynb) | [nb 31](https://github.com/fastai/course22p2/blob/master/nbs/31_imgnet_latents-widish.ipynb)
+- Notebooks discussed: [nb 29](https://github.com/fastai/course22p2/blob/master/nbs/29_vae.ipynb) | [nb 30](https://github.com/fastai/course22p2/blob/master/nbs/30_lsun_diffusion-latents.ipynb) | [nb 31](https://github.com/fastai/course22p2/blob/master/nbs/31_imgnet_latents-widish.ipynb) | [Johno's Simple Diffusion for audio](https://colab.research.google.com/drive/1b3CeZB2FfRGr5NPYDVvk34hyZFBtgub5?usp=sharing)
+
