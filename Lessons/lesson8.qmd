@@ -18,12 +18,12 @@ This lesson is based partly on [chapter 13](https://github.com/fastai/fastbook/b
 
 ## Resources
 
-- Notebooks for this lesson:
-  - [HuggingFace Spaces Pets repository](https://huggingface.co/spaces/jph00/pets/tree/main)
-  - [Which image models are best?](https://www.kaggle.com/code/jhoward/which-image-models-are-best/)
-  - [How does a neural net really work?](https://www.kaggle.com/code/jhoward/how-does-a-neural-net-really-work)
+- Notebooks for this lesson
+  - [Collaborative Filtering Deep Dive](https://www.kaggle.com/code/jhoward/collaborative-filtering-deep-dive/notebook)
+- [Spreadsheets](https://github.com/fastai/course22/tree/master/xl) for this lesson
+  - [Collaborative filterings and embeddings](https://github.com/fastai/course22/blob/master/xl/collab_filter.xlsx)
+  - [Convolutions](https://github.com/fastai/course22/blob/master/xl/conv-example.xlsx)
 - Other resources for the lesson
-  - Titanic spreadsheet: see the [course repository](https://github.com/fastai/course22)
-  - Titanic data (training CSV) can be downloaded from [Kaggle](https://www.kaggle.com/competitions/titanic/)
-- [Solutions ](https://forums.fast.ai/t/fastbook-chapter-4-questionnaire-solutions-wiki/67253) to chapter 4 questions from the book
-
+  - Please add any questions you want Jeremy to answer to the [AMA thread](https://forums.fast.ai/t/jeremy-ama/97238) – and upvote any there you’re interested in
+  - Special extra: [Data ethics](https://www.youtube.com/krIVOb23EH8) lesson
+- [Solutions](https://forums.fast.ai/t/fastbook-chapter-8-questionnaire-solutions-wiki/69926) to chapter 8 questionnaire from the book
