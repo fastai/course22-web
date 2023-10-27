@@ -20,7 +20,7 @@ website:
   reader-mode: true
   page-navigation: true
   repo-branch: master
-  repo-url: https://github.com/fastai/course22
+  repo-url: https://github.com/fastai/course22-web
   repo-actions: [issue]
   navbar:
     background: primary
