@@ -25,5 +25,5 @@ This lesson is based partly on [chapter 8](https://github.com/fastai/fastbook/bl
   - [Softmax and cross-entropy](https://github.com/fastai/course22/blob/master/xl/entropy_example.xlsx)
   - [Collaborative filterings and embeddings](https://github.com/fastai/course22/blob/master/xl/collab_filter.xlsx)
 - [Things that confused me about cross-entropy](https://chris-said.io/2020/12/26/two-things-that-confused-me-about-cross-entropy/) by Chris Said
-- [Label Smoothing Explained using Microsoft Excel](https://amaarora.github.io/2020/07/18/label-smoothing.html) by Aman Arora
+- [Label Smoothing Explained using Microsoft Excel](https://amaarora.github.io/posts/2020-07-18-label-smoothing.html) by Aman Arora
 
