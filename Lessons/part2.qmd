@@ -21,7 +21,7 @@ In this course, we'll explore diffusion methods such as Denoising Diffusion Prob
 
 Along the way, we'll cover essential deep learning topics like neural network architectures, data augmentation approaches, and various loss functions. We'll build our own models from scratch, such as Multi-Layer Perceptrons (MLPs), ResNets, and Unets, while experimenting with generative architectures like autoencoders and transformers.
 
-Throughout the course, we'll PyTorch to implement our models, and will create our own deep learning framework called `miniai`. We'll master Python concepts like iterators, generators, and decorators to keep our code clean and efficient. We'll also explore deep learning optimizers like stochastic gradient descent (SGD) accelerated approaches, learning rate annealing, and learning how to experiment with the impact different initialisers, batch sizes and learning rates. And of course, we'll make use of handy tools like the Python debugger (pdb) and nbdev for building Python modules from Jupyter notebooks.
+Throughout the course, we'll use PyTorch to implement our models, and will create our own deep learning framework called `miniai`. We'll master Python concepts like iterators, generators, and decorators to keep our code clean and efficient. We'll also explore deep learning optimizers like stochastic gradient descent (SGD) accelerated approaches, learning rate annealing, and learning how to experiment with the impact different initialisers, batch sizes and learning rates. And of course, we'll make use of handy tools like the Python debugger (pdb) and nbdev for building Python modules from Jupyter notebooks.
 
 Lastly, we'll touch on fundamental concepts like tensors, calculus, and pseudo-random number generation to provide a solid foundation for our exploration. We'll apply these concepts to machine learning techniques like mean shift clustering and convolutional neural networks (CNNs), and will see how to use tracking with Weights and Biases (W&B).
 
@@ -89,7 +89,7 @@ Here's a list of all the stuff that you'll learn in detail and build from scratc
     - Frobenius norm
     - Broadcasting in deep learning and machine learning code
     - Matrix multiplication
-    - Einstein summation notation and torch.einsum
+    - Einstein summation notation and `torch.einsum`
     - GPU acceleration and CUDA
     - Numba
   - Calculus
