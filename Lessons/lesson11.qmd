@@ -20,7 +20,7 @@ We then embark on a deep exploration of matrix multiplication using Python, comp
 
 ## Video
 
-<iframe width="514" height="289" src="https://www.youtube-nocookie.com/embed/_TMhP1VExVQ?modestbranding=1" title="fast.ai lesson 11" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="514" height="289" src="https://www.youtube-nocookie.com/embed/Tf-8F5q8Xww?modestbranding=1" title="fast.ai lesson 11" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Lesson resources
 
