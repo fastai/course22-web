@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.451">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Practical Deep Learning for Coders - Lesson 8</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../Lessons/part2.html" rel="next">
+<link href="../../Lessons/Summaries/lesson7.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Practical Deep Learning for Coders - Lesson 8">
+<meta property="og:description" content="Learn Deep Learning with fastai and PyTorch, 2022">
+<meta property="og:site_name" content="Practical Deep Learning for Coders">
+<meta name="twitter:title" content="Practical Deep Learning for Coders - Lesson 8">
+<meta name="twitter:description" content="Learn Deep Learning with fastai and PyTorch, 2022">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Practical Deep Learning for Coders</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/fastai/course22"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Lessons/lesson1.html">Part 1</a></li><li class="breadcrumb-item"><a href="../../Lessons/Summaries/lesson1.html">Summaries</a></li><li class="breadcrumb-item"><a href="../../Lessons/Summaries/lesson8.html">Lesson 8</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practical Deep Learning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Part 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1: Getting started</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2: Deployment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3: Neural net foundations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4: Natural Language (NLP)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5: From-scratch model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6: Random forests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7: Collaborative filtering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8: Convolutions (CNNs)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson8a.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bonus: Data ethics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Summaries</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/Summaries/lesson1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesson 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/Summaries/lesson2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesson 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/Summaries/lesson3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesson 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/Summaries/lesson4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesson 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/Summaries/lesson5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesson 5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/Summaries/lesson6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesson 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/Summaries/lesson7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesson 7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/Summaries/lesson8.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lesson 8</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Part 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/part2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part 2 overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9: Stable Diffusion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10: Diving Deeper</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">11: Matrix multiplication</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">12: Mean shift clustering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">13: Backpropagation &amp; MLP</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">14: Backpropagation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">15: Autoencoders</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson16.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">16: The Learner framework</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson17.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">17: Initialization/normalization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson18.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">18: Accelerated SGD &amp; ResNets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson19.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">19: DDPM and Dropout</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson20.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">20: Mixed Precision</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson21.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">21: DDIM</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson22.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">22: Karras et al (2022)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson23.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">23: Super-resolution</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson24.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">24: Attention &amp; transformers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson25.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">25: Latent diffusion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://youtu.be/0_BBRNYInx8" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bonus: Lesson 9a</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://youtu.be/mYpjmM7O-30" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bonus: Lesson 9b</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Resources</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Resources/book.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The book</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Resources/forums.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Forums</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Resources/kaggle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kaggle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Resources/testimonials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Testimonials</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#building-embeddings-from-scratch" id="toc-building-embeddings-from-scratch" class="nav-link active" data-scroll-target="#building-embeddings-from-scratch">Building embeddings from scratch</a></li>
+  <li><a href="#interpretation-of-embeddings" id="toc-interpretation-of-embeddings" class="nav-link" data-scroll-target="#interpretation-of-embeddings">Interpretation of embeddings</a></li>
+  <li><a href="#deep-learning-for-collaborative-filtering" id="toc-deep-learning-for-collaborative-filtering" class="nav-link" data-scroll-target="#deep-learning-for-collaborative-filtering">Deep learning for collaborative filtering</a></li>
+  <li><a href="#convolutions" id="toc-convolutions" class="nav-link" data-scroll-target="#convolutions">Convolutions</a></li>
+  <li><a href="#jeremy-ama" id="toc-jeremy-ama" class="nav-link" data-scroll-target="#jeremy-ama">Jeremy AMA</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/fastai/course22-web/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Lessons/lesson1.html">Part 1</a></li><li class="breadcrumb-item"><a href="../../Lessons/Summaries/lesson1.html">Summaries</a></li><li class="breadcrumb-item"><a href="../../Lessons/Summaries/lesson8.html">Lesson 8</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Lesson 8</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="building-embeddings-from-scratch" class="level2">
+<h2 class="anchored" data-anchor-id="building-embeddings-from-scratch">Building embeddings from scratch</h2>
+<ul>
+<li>What will part 2 feel like? a lot deeper technically? Able to read and implement research papers? Models involve real life situations?</li>
+<li>Review build a neuralnet from scratch. How Pytorch create a neuralnet effortlessly? How Pytorch keep track of model weights through <code>Module</code>? How does <code>Module</code> store weights with <code>nn.Parameter</code>? How to check weights from the model using <code>parameters()</code>?</li>
+</ul>
+<p><img src="https://forums.fast.ai/uploads/default/optimized/3X/a/c/ac1eeab37f915183a24b24161bc98b737375ed3a_2_690x284.png" alt="module-parameter" width="690" height="284" srcset="https://forums.fast.ai/uploads/default/optimized/3X/a/c/ac1eeab37f915183a24b24161bc98b737375ed3a_2_690x284.png, https://forums.fast.ai/uploads/default/optimized/3X/a/c/ac1eeab37f915183a24b24161bc98b737375ed3a_2_1035x426.png 1.5x, https://forums.fast.ai/uploads/default/original/3X/a/c/ac1eeab37f915183a24b24161bc98b737375ed3a.png 2x"></p>
+<ul>
+<li>You can build a layer in Module with <code>nn.Linear</code> without <code>nn.Parameter</code> and Pytorch can read weights from it too.</li>
+</ul>
+<p><img src="https://forums.fast.ai/uploads/default/optimized/3X/6/1/6169abe36ea65492da4795d59819c0a7711926f3_2_690x252.png" alt="module-layer" width="690" height="252" srcset="https://forums.fast.ai/uploads/default/optimized/3X/6/1/6169abe36ea65492da4795d59819c0a7711926f3_2_690x252.png, https://forums.fast.ai/uploads/default/optimized/3X/6/1/6169abe36ea65492da4795d59819c0a7711926f3_2_1035x378.png 1.5x, https://forums.fast.ai/uploads/default/original/3X/6/1/6169abe36ea65492da4795d59819c0a7711926f3.png 2x"></p>
+<ul>
+<li>How to create the <code>Embedding</code> function and the entire <code>DotProductBias</code> with pytorch using <code>create_params</code> from scratch? After it’s trained, the trained <code>movie_bias</code> can be checked. You can check the shape of the bias by <code>model.movie_bias.shape</code></li>
+</ul>
+<p><img src="https://forums.fast.ai/uploads/default/optimized/3X/b/3/b3ad05b6e908f82d01ae5bb03833fd3d22cdd07a_2_690x216.png" alt="create-embedding" width="690" height="216" srcset="https://forums.fast.ai/uploads/default/optimized/3X/b/3/b3ad05b6e908f82d01ae5bb03833fd3d22cdd07a_2_690x216.png, https://forums.fast.ai/uploads/default/optimized/3X/b/3/b3ad05b6e908f82d01ae5bb03833fd3d22cdd07a_2_1035x324.png 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/b/3/b3ad05b6e908f82d01ae5bb03833fd3d22cdd07a_2_1380x432.png 2x"></p>
+<p><img src="https://forums.fast.ai/uploads/default/optimized/3X/d/4/d463560b5dac88fa6265df49f186581365b15cd7_2_690x266.png" alt="DotProductBias-pytorch" width="690" height="266" srcset="https://forums.fast.ai/uploads/default/optimized/3X/d/4/d463560b5dac88fa6265df49f186581365b15cd7_2_690x266.png, https://forums.fast.ai/uploads/default/optimized/3X/d/4/d463560b5dac88fa6265df49f186581365b15cd7_2_1035x399.png 1.5x, https://forums.fast.ai/uploads/default/original/3X/d/4/d463560b5dac88fa6265df49f186581365b15cd7.png 2x"></p>
+<p><img src="https://forums.fast.ai/uploads/default/optimized/3X/b/9/b9c387939d608287db55c4fe3f2fde20579da859_2_690x352.jpeg" alt="movie-bias-trained" width="690" height="352" srcset="https://forums.fast.ai/uploads/default/optimized/3X/b/9/b9c387939d608287db55c4fe3f2fde20579da859_2_690x352.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/b/9/b9c387939d608287db55c4fe3f2fde20579da859_2_1035x528.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/b/9/b9c387939d608287db55c4fe3f2fde20579da859_2_1380x704.jpeg 2x"></p>
+<ul>
+<li>Questions: What does <code>Tensor.normal_</code> do?</li>
+</ul>
+<p><img src="https://forums.fast.ai/uploads/default/optimized/3X/a/8/a8cd719c1c9b49df72a7b63cc140c558462bc2ca_2_690x173.png" alt="Tensor.Normal_" width="690" height="173" srcset="https://forums.fast.ai/uploads/default/optimized/3X/a/8/a8cd719c1c9b49df72a7b63cc140c558462bc2ca_2_690x173.png, https://forums.fast.ai/uploads/default/optimized/3X/a/8/a8cd719c1c9b49df72a7b63cc140c558462bc2ca_2_1035x259.png 1.5x, https://forums.fast.ai/uploads/default/original/3X/a/8/a8cd719c1c9b49df72a7b63cc140c558462bc2ca.png 2x"></p>
+<p><img src="https://forums.fast.ai/uploads/default/optimized/3X/1/c/1c35d70ecfae6df4e054fecb879be854bbe5679a_2_690x74.png" alt="why-no-zeros" width="690" height="74" srcset="https://forums.fast.ai/uploads/default/optimized/3X/1/c/1c35d70ecfae6df4e054fecb879be854bbe5679a_2_690x74.png, https://forums.fast.ai/uploads/default/original/3X/1/c/1c35d70ecfae6df4e054fecb879be854bbe5679a.png 1.5x, https://forums.fast.ai/uploads/default/original/3X/1/c/1c35d70ecfae6df4e054fecb879be854bbe5679a.png 2x"></p>
+</section>
+<section id="interpretation-of-embeddings" class="level2">
+<h2 class="anchored" data-anchor-id="interpretation-of-embeddings">Interpretation of embeddings</h2>
+<ul>
+<li>After training, what can the <code>movie_bias</code> tell us about each and all the movies? What does having a low bias mean for a movie? What does having a high bias mean for a movie? Can <code>user_bias</code> tell us which user just loves movies even the crapy ones? This is visualizing <code>movie_bias</code></li>
+</ul>
+<p><img src="https://forums.fast.ai/uploads/default/optimized/3X/3/8/38eba26268dc461437ffe433be538e73f74d60bf_2_690x329.png" alt="interpreting-bias" width="690" height="329" srcset="https://forums.fast.ai/uploads/default/optimized/3X/3/8/38eba26268dc461437ffe433be538e73f74d60bf_2_690x329.png, https://forums.fast.ai/uploads/default/optimized/3X/3/8/38eba26268dc461437ffe433be538e73f74d60bf_2_1035x493.png 1.5x, https://forums.fast.ai/uploads/default/original/3X/3/8/38eba26268dc461437ffe433be538e73f74d60bf.png 2x"></p>
+<ul>
+<li>What can we interpret or do about the huge matrix with shape <code>(num_users, 50)</code>? How to shrink the 50 latent factors into just 3 most important factors with <code>pca</code>?</li>
+</ul>
+<p><img src="https://forums.fast.ai/uploads/default/optimized/3X/c/4/c456a152f3dd0f85b7d17e6eee93c0179bc942d6_2_690x227.png" alt="shrink-by-pca" width="690" height="227" srcset="https://forums.fast.ai/uploads/default/optimized/3X/c/4/c456a152f3dd0f85b7d17e6eee93c0179bc942d6_2_690x227.png, https://forums.fast.ai/uploads/default/optimized/3X/c/4/c456a152f3dd0f85b7d17e6eee93c0179bc942d6_2_1035x340.png 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/c/4/c456a152f3dd0f85b7d17e6eee93c0179bc942d6_2_1380x454.png 2x"></p>
+<ul>
+<li>How to interpret the PCA chart of movies rated with only just two PCA factors of out 3 compressed by 50 factors? How the taste or style of the movies are condensed into two factors and displayed and defined by the location of the two dimensional chart? This is visualizing movie_factors or embeddings.</li>
+</ul>
+<p><img src="https://forums.fast.ai/uploads/default/optimized/3X/4/e/4eac3d75cab2db567ac45fba7fbf0ef17b2c514d_2_587x500.jpeg" alt="compress-movie-taste-by-2-factors" width="587" height="500" srcset="https://forums.fast.ai/uploads/default/optimized/3X/4/e/4eac3d75cab2db567ac45fba7fbf0ef17b2c514d_2_587x500.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/4/e/4eac3d75cab2db567ac45fba7fbf0ef17b2c514d_2_880x750.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/4/e/4eac3d75cab2db567ac45fba7fbf0ef17b2c514d_2_1174x1000.jpeg 2x"></p>
+<ul>
+<li>How fastai makes all the work above easier with just one line of code?</li>
+</ul>
+<p><img src="https://forums.fast.ai/uploads/default/optimized/3X/e/d/ed57496a25b591290deb15ac0a87bc09276e6ee7_2_559x500.jpeg" alt="fastai-make-things-easier" width="559" height="500" srcset="https://forums.fast.ai/uploads/default/optimized/3X/e/d/ed57496a25b591290deb15ac0a87bc09276e6ee7_2_559x500.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/e/d/ed57496a25b591290deb15ac0a87bc09276e6ee7_2_838x750.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/e/d/ed57496a25b591290deb15ac0a87bc09276e6ee7_2_1118x1000.jpeg 2x"></p>
+<ul>
+<li>How fastai construct everything under the hood of <code>collab_learner</code>?</li>
+</ul>
+<p><img src="https://forums.fast.ai/uploads/default/optimized/3X/4/a/4afaa7b7a3eb83460fb708c1038a4bb7636931ae_2_690x241.jpeg" alt="collab_learner" width="690" height="241" srcset="https://forums.fast.ai/uploads/default/optimized/3X/4/a/4afaa7b7a3eb83460fb708c1038a4bb7636931ae_2_690x241.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/4/a/4afaa7b7a3eb83460fb708c1038a4bb7636931ae_2_1035x361.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/4/a/4afaa7b7a3eb83460fb708c1038a4bb7636931ae_2_1380x482.jpeg 2x"></p>
+<p><img src="https://forums.fast.ai/uploads/default/optimized/3X/3/6/36b95732e07160818fc282f97a1ea26feebde957_2_690x291.png" alt="EmbeddingDotBias" width="690" height="291" srcset="https://forums.fast.ai/uploads/default/optimized/3X/3/6/36b95732e07160818fc282f97a1ea26feebde957_2_690x291.png, https://forums.fast.ai/uploads/default/optimized/3X/3/6/36b95732e07160818fc282f97a1ea26feebde957_2_1035x436.png 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/3/6/36b95732e07160818fc282f97a1ea26feebde957_2_1380x582.png 2x"></p>
+<ul>
+<li>Questions: is PCA useful in other applications? Where to find more of PCA? Why should you take Rachel’s Computational Linear Algebra?</li>
+<li>How to use Embedding distance to find out movie similarities?</li>
+</ul>
+<p><img src="https://forums.fast.ai/uploads/default/optimized/3X/3/5/3570ea9ea1d9e3d83fcb1fc79da041378c2ab6cb_2_690x205.jpeg" alt="embedding-distance-similarities" width="690" height="205" srcset="https://forums.fast.ai/uploads/default/optimized/3X/3/5/3570ea9ea1d9e3d83fcb1fc79da041378c2ab6cb_2_690x205.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/3/5/3570ea9ea1d9e3d83fcb1fc79da041378c2ab6cb_2_1035x307.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/3/5/3570ea9ea1d9e3d83fcb1fc79da041378c2ab6cb_2_1380x410.jpeg 2x"></p>
+<ul>
+<li>Go to read the fastbook for boostrapping a collaborative filtering model</li>
+</ul>
+</section>
+<section id="deep-learning-for-collaborative-filtering" class="level2">
+<h2 class="anchored" data-anchor-id="deep-learning-for-collaborative-filtering">Deep learning for collaborative filtering</h2>
+<ul>
+<li>How to do collaborative filtering with deep learning instead of matrix completion with dot product above? How to apply the easist neuralnet model architecture onto this collaborative filtering case?</li>
+</ul>
+<p><img src="https://forums.fast.ai/uploads/default/optimized/3X/2/e/2e3885bd3fec97240d61b1114ada57a770dddcac_2_690x273.jpeg" alt="deep-learning-colab-filter" width="690" height="273" srcset="https://forums.fast.ai/uploads/default/optimized/3X/2/e/2e3885bd3fec97240d61b1114ada57a770dddcac_2_690x273.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/2/e/2e3885bd3fec97240d61b1114ada57a770dddcac_2_1035x409.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/2/e/2e3885bd3fec97240d61b1114ada57a770dddcac_2_1380x546.jpeg 2x"></p>
+<ul>
+<li>How does fastai use rules of thumb to recommend the number of latent factors for users and movies?</li>
+</ul>
+<p><img src="https://forums.fast.ai/uploads/default/optimized/3X/7/0/70613b67c9727ff47186d2323466a5ddb589497a_2_690x154.png" alt="number-latent-factors" width="690" height="154" srcset="https://forums.fast.ai/uploads/default/optimized/3X/7/0/70613b67c9727ff47186d2323466a5ddb589497a_2_690x154.png, https://forums.fast.ai/uploads/default/original/3X/7/0/70613b67c9727ff47186d2323466a5ddb589497a.png 1.5x, https://forums.fast.ai/uploads/default/original/3X/7/0/70613b67c9727ff47186d2323466a5ddb589497a.png 2x"></p>
+<ul>
+<li>How does fastai use deep learning to build collaborative filtering model in two ways?</li>
+</ul>
+<p><img src="https://forums.fast.ai/uploads/default/optimized/3X/3/6/362b88b96fc4ec0055caf95a2be17003dee2e4fc_2_690x391.jpeg" alt="dl-way-2" width="690" height="391" srcset="https://forums.fast.ai/uploads/default/optimized/3X/3/6/362b88b96fc4ec0055caf95a2be17003dee2e4fc_2_690x391.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/3/6/362b88b96fc4ec0055caf95a2be17003dee2e4fc_2_1035x586.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/3/6/362b88b96fc4ec0055caf95a2be17003dee2e4fc_2_1380x782.jpeg 2x"></p>
+<p>Why the deep learning versions are not as good as DotProduct version? Is it because DotProduct is more tailored to the problem? How do companies combine both versions to do collaborative filtering? When you have lots of metadata, should you apply deep learning to it? How would you use metadata in the model? - Questions: Can a smaller number of users and movies overwhelm everybody else? e.g., a small group of anime enthusiasts watch a lot of anime movies and give super high ratings. Details of how to deal with them won’t be discussed here - How to apply embedding matrix into NLP model through a spreadsheet demo? What’s the essense of neuralnet?</p>
+<p><img src="https://forums.fast.ai/uploads/default/optimized/3X/1/0/1052d5774f1d716e988c005abce8939662b6a2a3_2_561x500.jpeg" alt="embedding-nlp" width="561" height="500" srcset="https://forums.fast.ai/uploads/default/optimized/3X/1/0/1052d5774f1d716e988c005abce8939662b6a2a3_2_561x500.jpeg, https://forums.fast.ai/uploads/default/optimized/3X/1/0/1052d5774f1d716e988c005abce8939662b6a2a3_2_841x750.jpeg 1.5x, https://forums.fast.ai/uploads/default/optimized/3X/1/0/1052d5774f1d716e988c005abce8939662b6a2a3_2_1122x1000.jpeg 2x"></p>
+<ul>
+<li>How to apply embeddings to tabular dataset and models? How to understand <code>TabularModel</code> and <code>tabular_learner</code> source?</li>
+<li>What’s going on inside a neuralnet through a shop sale prediction kaggle competition and a paper published based on it?</li>
+</ul>
+</section>
+<section id="convolutions" class="level2">
+<h2 class="anchored" data-anchor-id="convolutions">Convolutions</h2>
+<ul>
+<li>So far we have looked at what goes in as inputs and what goes out of a model as outputs. We have also looked at the middle as matrix multiplication. What are convolution (a particular kind of matrix multiplication in the middel)? How is it be very useful to CV? Why MNIST is one of the most famous CV dataset? How does Jeremy apply what Fergus and Zeiler’s paper onto MNIST using excel and convolution?</li>
+<li>How to understand convolution? What does a filter do and How does it help to detect horizontal and vertical edges? How to determine the size of the filter or kernel (3x3, or 5x5, or any)? conv1 means the first convolutional layer</li>
+<li>moving onto the second convolutional layer. Two filters give us two channels on the first convolutional layer. On the second convolutional layer, we create one 3D matrix filter which has two matrix filters to filter/process the two channels out of the first conv layer, and condense the value. And we can also create a second channle for the 2nd conv layer using another 3D filter.</li>
+<li>How to determine the output and use SGD to train the model and optimize the filters?</li>
+<li>What is maxpooling? What’s the problem of maxpooling? How much data do we lose? Why it is a good thing? What is a dense layer and what does it do?</li>
+<li>How we do convolution slightly differently today? What is stride-two convolution and how does it work? (no more maxpooling) Then we do a lot of stride-two convolutions until the size shrinked to 7x7 and then do a <code>average_pooling</code> (no more dense layer). What does the 7x7 grid and take an average mean? What is the problem of such approach? When is the good time to use maxpool instead? How fastai made it easy for us to try both pooling by inventing a technique called <code>concat_pooling</code> to maxpool and <code>average_pool</code> and concat them together?</li>
+<li>How to understand convolution in terms of matrix multiplications?</li>
+<li>What is dropout and how to understand it using excel? What is droput mask? What’s its effect visually on excel? How to understand dropout as data augmentation for the activations? How does it help avoid overfitting? What’s the story of dropout and academia?</li>
+<li>Why Jeremy not spend much time on activation functions? We have seen many functions on metrics, loss and activations.</li>
+<li>What to do next before fastai part2? What Radek’s book meta learning is about? What are the things to do in Write, Help, Gather and Build?</li>
+<li>a fastai community member published mish activation used by many state of art models.</li>
+</ul>
+</section>
+<section id="jeremy-ama" class="level2">
+<h2 class="anchored" data-anchor-id="jeremy-ama">Jeremy AMA</h2>
+<ul>
+<li>How to keep up? To keep up by focusing in subfield of deep learning and focusing on things that don’t change much as the foundations of fastai have not changed much from 5 years ago. Everything else is just tweaks.</li>
+<li>Will huge dataset and GPU computation replace us with small dataset and one gpu? There is always smarter ways of doing things, eg. Fastai team trained on imagenet on standard GPU faster than all companies with huge amount of GPUs. Pick areas of different domains which smaller models can beat the state of the art.</li>
+<li>How Jeremy to teach kids math? all kids can learn algebra with dragonbox5+. Great, Jeremy promised to talk more about teaching kids some point later.</li>
+<li>Plans for walkthrus</li>
+<li>How to turn a model into business? Great news, Jeremy plans to build a course on this! What is the start of a business? What is the first step? How to gradually figure out whether your idea has a real need from people?</li>
+<li>How Jeremy stay so efficient at working? Finish something nicely, tenacity</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    const typesetMath = (el) => {
+      if (window.MathJax) {
+        // MathJax Typeset
+        window.MathJax.typeset([el]);
+      } else if (window.katex) {
+        // KaTeX Render
+        var mathElements = el.getElementsByClassName("math");
+        var macros = [];
+        for (var i = 0; i < mathElements.length; i++) {
+          var texText = mathElements[i].firstChild;
+          if (mathElements[i].tagName == "SPAN") {
+            window.katex.render(texText.data, mathElements[i], {
+              displayMode: mathElements[i].classList.contains('display'),
+              throwOnError: false,
+              macros: macros,
+              fleqn: false
+            });
+          }
+        }
+      }
+    }
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        typesetMath(container);
+        return container.innerHTML
+      } else {
+        typesetMath(note);
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      typesetMath(note);
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../Lessons/Summaries/lesson7.html" class="pagination-link  aria-label=" lesson="" 7"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lesson 7</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../Lessons/part2.html" class="pagination-link" aria-label="Part 2 overview">
+        <span class="nav-page-text">Part 2 overview</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

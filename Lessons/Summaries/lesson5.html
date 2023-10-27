@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.451">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Practical Deep Learning for Coders - Lesson 5</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../Lessons/Summaries/lesson6.html" rel="next">
+<link href="../../Lessons/Summaries/lesson4.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Practical Deep Learning for Coders - Lesson 5">
+<meta property="og:site_name" content="Practical Deep Learning for Coders">
+<meta name="twitter:title" content="Practical Deep Learning for Coders - Lesson 5">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Practical Deep Learning for Coders</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/fastai/course22"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Lessons/lesson1.html">Part 1</a></li><li class="breadcrumb-item"><a href="../../Lessons/Summaries/lesson1.html">Summaries</a></li><li class="breadcrumb-item"><a href="../../Lessons/Summaries/lesson5.html">Lesson 5</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practical Deep Learning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Part 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1: Getting started</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2: Deployment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3: Neural net foundations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4: Natural Language (NLP)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5: From-scratch model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6: Random forests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7: Collaborative filtering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8: Convolutions (CNNs)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson8a.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bonus: Data ethics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Summaries</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/Summaries/lesson1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesson 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/Summaries/lesson2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesson 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/Summaries/lesson3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesson 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/Summaries/lesson4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesson 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/Summaries/lesson5.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lesson 5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/Summaries/lesson6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesson 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/Summaries/lesson7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesson 7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/Summaries/lesson8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesson 8</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Part 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/part2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part 2 overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9: Stable Diffusion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10: Diving Deeper</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">11: Matrix multiplication</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">12: Mean shift clustering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">13: Backpropagation &amp; MLP</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">14: Backpropagation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">15: Autoencoders</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson16.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">16: The Learner framework</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson17.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">17: Initialization/normalization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson18.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">18: Accelerated SGD &amp; ResNets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson19.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">19: DDPM and Dropout</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson20.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">20: Mixed Precision</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson21.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">21: DDIM</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson22.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">22: Karras et al (2022)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson23.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">23: Super-resolution</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson24.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">24: Attention &amp; transformers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson25.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">25: Latent diffusion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://youtu.be/0_BBRNYInx8" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bonus: Lesson 9a</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://youtu.be/mYpjmM7O-30" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bonus: Lesson 9b</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Resources</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Resources/book.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The book</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Resources/forums.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Forums</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Resources/kaggle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kaggle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Resources/testimonials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Testimonials</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#linear-model-and-neuralnet-from-scratch" id="toc-linear-model-and-neuralnet-from-scratch" class="nav-link active" data-scroll-target="#linear-model-and-neuralnet-from-scratch">Linear model and neuralnet from scratch</a></li>
+  <li><a href="#key-steps-from-linear-model-to-neuralnet" id="toc-key-steps-from-linear-model-to-neuralnet" class="nav-link" data-scroll-target="#key-steps-from-linear-model-to-neuralnet">Key steps from linear model to neuralnet</a></li>
+  <li><a href="#building-a-neural-net" id="toc-building-a-neural-net" class="nav-link" data-scroll-target="#building-a-neural-net">Building a neural net</a></li>
+  <li><a href="#from-neuralnet-1-hidden-layer-to-deep-learning-with-2-hidden-layers" id="toc-from-neuralnet-1-hidden-layer-to-deep-learning-with-2-hidden-layers" class="nav-link" data-scroll-target="#from-neuralnet-1-hidden-layer-to-deep-learning-with-2-hidden-layers">From neuralnet (1 hidden layer) to deep learning with 2 hidden layers</a></li>
+  <li><a href="#framework-dl-without-super-fiddling-notebook" id="toc-framework-dl-without-super-fiddling-notebook" class="nav-link" data-scroll-target="#framework-dl-without-super-fiddling-notebook">Framework: DL without super fiddling notebook</a></li>
+  <li><a href="#predict-and-submit-with-ease" id="toc-predict-and-submit-with-ease" class="nav-link" data-scroll-target="#predict-and-submit-with-ease">Predict and Submit with ease</a></li>
+  <li><a href="#experiment-with-ensembling" id="toc-experiment-with-ensembling" class="nav-link" data-scroll-target="#experiment-with-ensembling">Experiment with Ensembling</a></li>
+  <li><a href="#how-random-forest-really-work" id="toc-how-random-forest-really-work" class="nav-link" data-scroll-target="#how-random-forest-really-work">How Random Forest really work</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/fastai/course22-web/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Lessons/lesson1.html">Part 1</a></li><li class="breadcrumb-item"><a href="../../Lessons/Summaries/lesson1.html">Summaries</a></li><li class="breadcrumb-item"><a href="../../Lessons/Summaries/lesson5.html">Lesson 5</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Lesson 5</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="linear-model-and-neuralnet-from-scratch" class="level2">
+<h2 class="anchored" data-anchor-id="linear-model-and-neuralnet-from-scratch">Linear model and neuralnet from scratch</h2>
+<ul>
+<li>Tabular model from scratch</li>
+<li>Review Titanic dataset and the two models in excel</li>
+<li>From excel to python</li>
+<li>Clean version of notebook
+<ul>
+<li>What does a clean version of the notebook look like?</li>
+</ul></li>
+<li>Get comfortable in Paperspace Gradient
+<ul>
+<li>How to work with jupyterlab mode instead of default mode?</li>
+<li>How to swift between jupyterlab mode and jupyter notebook mode?</li>
+<li>Learn some useful keyboard shortcuts</li>
+</ul></li>
+<li>Things to do with clean notebook
+<ul>
+<li>What are the steps or things we should do with the clean version of a course notebook?</li>
+<li>Where is the non-clean version?</li>
+</ul></li>
+<li>Same notebook runs on Kaggle and everywhere
+<ul>
+<li>How to check whether the notebook is running on Kaggle or elsewhere?</li>
+<li>How to get the data and its path right accordingly?</li>
+</ul></li>
+<li>Libraries and format setup
+<ul>
+<li>How much should we know about these libraries before starting?</li>
+<li>How to make the printed result look nicer in cells?</li>
+</ul></li>
+<li>Read train.csv as Dataframe
+<ul>
+<li>How to read and display a csv file in pandas dataframe format?</li>
+</ul></li>
+<li>Find and count missing data with pandas
+<ul>
+<li>How to check missing data in each cell/row?</li>
+<li>How to sum up missing data in each column?</li>
+</ul></li>
+<li>Choose mode value for the missing data
+<ul>
+<li>What is the most common choice for replacing the missing data regardless categorical or continuous? mode</li>
+<li>How to select the first mode value if there are two modes available for a column?</li>
+</ul></li>
+<li>Be proactively curious
+<ul>
+<li>Why it is impractical for Jeremy to explain every common function of every library used?</li>
+<li>What should you do about it?</li>
+</ul></li>
+<li>Replace missing data with mode values
+<ul>
+<li>How to fill in the missing data with mode values of those columns with or without creating a new dataframe?</li>
+</ul></li>
+<li>Keep things simple where we can
+<ul>
+<li>Why use the world’s simplest way of filling missing data?</li>
+<li>Does this simplest way work most of the time?</li>
+<li>Do we always know the complicated way would help?</li>
+</ul></li>
+<li>Don’t throw out rows nor columns
+<ul>
+<li>Do those filled columns sometimes turn out to matter much for the model?</li>
+<li>How does fastai library help to find out about it?</li>
+</ul></li>
+<li>Describe your data or columns
+<ul>
+<li>How to get a quick overview/description of your data?</li>
+<li>What do we look for in the descriptions?</li>
+</ul></li>
+<li>See your columns in histogram
+<ul>
+<li>What to do with interesting columns?</li>
+<li>What can you find out with histogram?</li>
+<li>What is long-tailed distribution of the column? What does it look like?</li>
+</ul></li>
+<li>Log transformation on long-tailed columns
+<ul>
+<li>Which models don’t like long-tailed distributions in the data? #data-describing</li>
+<li>What is the easiest way to turn long-tailed to centered distribution?</li>
+<li>Where to find more about the log and log curve?</li>
+<li>What does log do in one sentence? 17:11</li>
+<li>How to avoid the problem of log(0)? adding 1</li>
+<li>What does the column data (histogram) look like after transformed by log?</li>
+</ul></li>
+<li>Most likely long-tailed data
+<ul>
+<li>What kind of data are most likely to be long-tailed which need log transformation?</li>
+</ul></li>
+<li>Describe non-numerical columns
+<ul>
+<li>How to describe seemingly numerical but actual categorical columns?</li>
+<li>How to describe all non-numeric columns altogether?</li>
+<li>What does this description look like? (how it differ from those of numeric data)</li>
+</ul></li>
+<li>Apply coefficients on categorical columns
+<ul>
+<li>How to apply coefficients to categorical columns?</li>
+<li>What does it mean by applying dummy variables to categorical columns?</li>
+<li>What are the two ways of getting dummy variables and what’s Jeremy view on them?</li>
+<li>What does the dummy variable transformation of categorical variables look like ?</li>
+</ul></li>
+<li>The secret power of name column
+<ul>
+<li>Can a model built only on name column score No.1 in Titanic competition?</li>
+<li>Where to find more about it?</li>
+<li>This technique is not covered in this lecture</li>
+</ul></li>
+<li>Tensor
+<ul>
+<li>Why focus on pytorch rather than numpy?</li>
+<li>What data format does pytorch require? How to do this data format conversion?</li>
+<li>What is a tensor? Where did it come from?</li>
+<li>How to turn all independent columns into a single large tensor?</li>
+<li>What is the number type does tensor need? float</li>
+<li>How to check the shape of a tensor? (num of rows and columns)</li>
+<li>How to check the rank/dimensions/axis of a tensor? What is rank?</li>
+<li>What is the rank of a vector, a table/matrix, or a zero?</li>
+</ul></li>
+<li>Create random coefficients
+<ul>
+<li>Why we don’t need a constant here as in excel?</li>
+<li>How many coefficients we need? How we figure it out?</li>
+<li>How to create a vector of randomized numbers for the coefficients?</li>
+<li>How to make the coefficients value centered? Why this is important? (answered later)</li>
+</ul></li>
+<li>Reproducibility of coefficients
+<ul>
+<li>How to create the same set of random numbers for your coefficients each time running the cell?</li>
+<li>When to and not to use random seed to make your result reproducible?</li>
+<li>How not using random seed can help understand your model intuitively?</li>
+</ul></li>
+<li>Broadcasting: data * coefficients operation on GPU
+<ul>
+<li>What is broadcasting? Isn’t it just matrix and vector multiplication?</li>
+<li>Where did it come from?</li>
+<li>What are the benefits of using broadcasting?</li>
+<li>simple code vs lots of boilerplate</li>
+<li>coded and optimized in C language for GPU computation</li>
+<li>What’s the rule of broadcasting and where to find more about it?</li>
+<li>a great blog post help understand broadcasting</li>
+</ul></li>
+<li>Normalization: make the same range of values for each column
+<ul>
+<li>What would happen when the values of a column is much larger than the values of other columns?</li>
+<li>Why to make every data column to have the same range of values?</li>
+<li>How to achieve the same range for all column values?</li>
+<li>What are the two major ways of doing normalization?</li>
+<li>Does Jeremy favor one over the other?</li>
+</ul></li>
+<li>Sum up to get predictions
+<ul>
+<li>How to sum up the multiplication of each row with the coefficients, and do it for all rows?</li>
+<li>Is the summed-up number the prediction for each person/row of data?</li>
+</ul></li>
+<li>A default choice for loss function
+<ul>
+<li>How to make the model better? Gradient descent</li>
+<li>What is needed to do gradient descent? loss function</li>
+<li>What does a loss function do? measure the performance of coefficients</li>
+<li>What is Jeremy’s default/favorite choice for loss function?</li>
+<li>Why does Jeremy always write the loss function out manually when experimenting?</li>
+</ul></li>
+<li>Make notebook readable/understandable in the future
+<ul>
+<li>When to encapsulate all exploratory steps into a few functions?</li>
+<li>Why keep all these exploratory steps available (Don’t delete them)?</li>
+</ul></li>
+<li>Update coefficients with gradient descent in Pytorch
+<ul>
+<li>How to ask PyTorch to do gradients on coefficients?</li>
+<li>How to ask Pytorch to update values on the same coefficients tensor (not create new one)?</li>
+<li>What does loss function do besides giving us a loss value? What does it store?</li>
+<li>What function to run with loss to calculate gradients for coefficients?</li>
+<li>How to access the gradients of coefficients? and how to interpret the gradients?</li>
+<li>How to decide whether it is to subtract or add gradients to coefficient?</li>
+<li>How to choose on the learning rate?</li>
+<li>How to calc updated loss with renewed coefficients?</li>
+</ul></li>
+<li>Split the dataset
+<ul>
+<li>Why did Jeremy randomly split training and validation set for Titanic dataset?</li>
+<li>Why to use fastai’s random splitter function?</li>
+<li>How to create the training and validation set with the splitter function?</li>
+</ul></li>
+<li>Encapsulate functions for model training
+<ul>
+<li>How does Jeremy create functions like init_coeffs, update_coeffs, one_epoch, train_model from the exploratory steps above?</li>
+<li>How to use the train_model function to see how well the model works?</li>
+</ul></li>
+<li>Titanic dataset is a good playground
+<ul>
+<li>Why so?</li>
+</ul></li>
+<li>Display coefficients
+<ul>
+<li>How to display the final coefficients?</li>
+<li>How to interpret it?</li>
+<li>Can we make some sense of the values inside?</li>
+</ul></li>
+<li>Accuracy as metrics
+<ul>
+<li>Why not use accuracy as loss function?</li>
+<li>What can we use accuracy function for?</li>
+<li>What threshold did Jeremy use for survival?</li>
+<li>How to calculate accuracy and put it into a function?</li>
+</ul></li>
+<li>Sigmoid function: ease coefficients optimization
+<ul>
+<li>What you see from the predictions make you think of using sigmoid function?</li>
+<li>Why sigmoid function can really make optimization easier for the model?</li>
+<li>Why the two-ends plateau of the function is good for optimization? (to tolerate very large and small values of predictions rather than forcing every prediction to get closer to 1 or 0)</li>
+<li>Why the straight-line middle part of the function plot is also what we want? 48:58</li>
+<li>How to plot any function with just one line of code? What library is this? sympy</li>
+<li>How to update calc_preds function with sigmoid function easily in Jupyter? 50:52</li>
+<li>Why to make predictions to center on 0 before sigmoid function? (a reply by Jeremy)</li>
+<li>Do you remember what did Jeremy do to make prediction center on 0? (see how initial coefficients is defined, a cell link on Kaggle)</li>
+<li>Why allow predictions to be large or small can make weights optimization easier? (Jeremy’s reply)</li>
+<li>How python with Jupyter make exploratory work so easy?</li>
+<li>How come the learning rate jump from 0.1 before sigmoid to 2 after using sigmoid? 51:57</li>
+<li>When or How often (as a rule) should you use sigmoid function to your prediction? 52:23</li>
+<li>Does HF library specify whether they use sigmoid or not? (probably the others neither)</li>
+<li>What You need to watch out for optimization is the input and output not the middle for now. Why is that? 53:13</li>
+</ul></li>
+<li>What if test dataset has extra columns?
+<ul>
+<li>What would the normal consequences be?</li>
+<li>How does fastai deal with it for good?</li>
+</ul></li>
+<li>Submit to Kaggle
+<ul>
+<li>How and why Jeremy replaced a missing value of Fare with 0?</li>
+<li>How to apply the above data cleaning steps to the test set?</li>
+<li>How to prepare the output column expected by Kaggle?</li>
+<li>How to create the submit file expected by Kaggle?</li>
+</ul></li>
+</ul>
+</section>
+<section id="key-steps-from-linear-model-to-neuralnet" class="level2">
+<h2 class="anchored" data-anchor-id="key-steps-from-linear-model-to-neuralnet">Key steps from linear model to neuralnet</h2>
+<ul>
+<li>val_indep * coeffs vs val_indep @ coeffs
+<ul>
+<li>What do we know about val_indep * coeffs mean? Is it element-wise? Is it matrix and vector multiplication?</li>
+<li>What do we know about val_indep @ coeffs? Is it matrix-matrix multiplication?</li>
+<li>Is (val_indep * coeffs).sum(axis=1) equal to val_indep @ coeffs?</li>
+<li>What should we know about them to distinguish them properly?</li>
+<li>In val_indep @ coeffs, when coeffs is a matrix, do we need to specify its shape? 59:50</li>
+<li>How to initiate coefficients as a one column matrix rather than a vector?</li>
+</ul></li>
+<li>Transform existing vectors into matrix
+<ul>
+<li>How to turn both trns_dep and vald_dep from existing vectors to matrices which responding to coeffs matrix?</li>
+</ul></li>
+</ul>
+</section>
+<section id="building-a-neural-net" class="level2">
+<h2 class="anchored" data-anchor-id="building-a-neural-net">Building a neural net</h2>
+<ul>
+<li>Keep linear model and neuralnet comparable in output
+<ul>
+<li>How to create a layer within multi-hidden layers inside (or a matrix of coefficients rather than a vector of coefficients)?</li>
+<li>why to divide the coefficients of the multi-hidden layers by the number of layers (or the matrix of coefficients by the number of columns)?</li>
+<li>Is it to make sure the outputs of neuralnet and previous linear model are comparable?</li>
+</ul></li>
+<li>Build the output layer
+<ul>
+<li>How to build the coeffs of the output layer with correct shape which connects with the previous layer?</li>
+<li>How to decide the number of output of this output layer?</li>
+</ul></li>
+<li>TRY to getting the training started
+<ul>
+<li>Why Jeremy make the coefficients of the output layer to minus 0.3?</li>
+<li>What does it mean by this minus 0.3 can get the training start?</li>
+<li>(I guess Jeremy may tried -0.5 first, experiment to find it out)</li>
+</ul></li>
+<li>Adding Constant or not
+<ul>
+<li>Why we don’t need a constant for layer 1 (think of the constant of the linear model)?</li>
+<li>Why we must have a constant for layer 2?</li>
+<li>Do coefficients of layer1, layer 2 and constants all need their own gradients initiated?</li>
+</ul></li>
+<li>Building the model
+<ul>
+<li>What is a tuple and how it is used for grouping and separating the three coefficients?</li>
+<li>How to construct the prediction function by sending data through layer 1 and layer 2 finally add constants?</li>
+</ul></li>
+<li>A neuralnet done but super fiddly
+<ul>
+<li>How to update all three coefficients in a loop?</li>
+<li>Did you notice that the learning rate changed again? (1.4, last time was 2, earlier was 0.1)</li>
+<li>What did Jeremy say getting this model work was super fiddly?</li>
+</ul></li>
+</ul>
+</section>
+<section id="from-neuralnet-1-hidden-layer-to-deep-learning-with-2-hidden-layers" class="level2">
+<h2 class="anchored" data-anchor-id="from-neuralnet-1-hidden-layer-to-deep-learning-with-2-hidden-layers">From neuralnet (1 hidden layer) to deep learning with 2 hidden layers</h2>
+<ul>
+<li>Initialize coefficients of all hidden layers and constants
+<ul>
+<li>How to initialize coefficients of 2 hidden layers and 1 output layer and constants, and get gradients ready for all of them, in one compact function?</li>
+<li>What are the shape of each coefficient matrix?</li>
+</ul></li>
+<li>Building the 2 hidden layer model
+<ul>
+<li>What are activation functions?</li>
+<li>What are the activation functions for 2 hidden layers?</li>
+<li>What is the activation function for the output layer?</li>
+<li>What is the most common mistake on applying activation function to the final layer?</li>
+</ul></li>
+<li>Train the model
+<ul>
+<li>Don’t forget to update gradients</li>
+<li>Which are those numbers Jeremy still have to fiddle to get right?</li>
+<li>Did this deep learning model improve on the loss and accuracy?</li>
+</ul></li>
+<li>Dissect and Experiment large functions
+<ul>
+<li>How to experiment on a large function like the init_coeffs by breaking it into small pieces and running them?</li>
+</ul></li>
+<li>Tabular datasets: where deep learning not shining
+<ul>
+<li>How should we think about that both neuralnet and deep learning models aren’t better?</li>
+<li>What does it mean that a carefully designed algo beat all deep learning models in Titanic competition?</li>
+<li>What datasets do deep learning generally perform better?</li>
+</ul></li>
+</ul>
+</section>
+<section id="framework-dl-without-super-fiddling-notebook" class="level2">
+<h2 class="anchored" data-anchor-id="framework-dl-without-super-fiddling-notebook">Framework: DL without super fiddling notebook</h2>
+<ul>
+<li>Why use framework rather than from scratch
+<ul>
+<li>Why you should use a library framework in real life rather than building yourself like the above?</li>
+<li>When to do it from scratch?</li>
+<li>What can a framework do for us?</li>
+<li>Can it automate the obvious things like initialization, learning rate, dummy variable, normalization, etc?</li>
+<li>Can I still make choice on the not-so obvious things?</li>
+</ul></li>
+<li>Feature engineering with pandas
+<ul>
+<li>What is the feature engineering with pandas look like?</li>
+<li>How and where does Jeremy suggest on digging in pandas?</li>
+</ul></li>
+<li>Automate the obvious when preparing dataset
+<ul>
+<li>How framework make cateorifying data, filling missing data, normalization automatic?</li>
+<li>How to specify the dependent column to be a category?</li>
+</ul></li>
+<li>Build multi-hidden layers with one line of code
+<ul>
+<li>How to specify the shapes of two hidden layers with just two numbers?</li>
+<li>Do you only need to specify accuray without worrying about loss and activations?</li>
+</ul></li>
+<li>Automate the search of best learning rate
+<ul>
+<li>How does fastai help you find the range where best learning rate locates?</li>
+<li>How should you pick the learning rate from the range?</li>
+</ul></li>
+</ul>
+</section>
+<section id="predict-and-submit-with-ease" class="level2">
+<h2 class="anchored" data-anchor-id="predict-and-submit-with-ease">Predict and Submit with ease</h2>
+<ul>
+<li>Automate transformation of test set in one line of code
+<ul>
+<li>How to automatically apply all transformations done to training and validation sets to test set?</li>
+</ul></li>
+</ul>
+</section>
+<section id="experiment-with-ensembling" class="level2">
+<h2 class="anchored" data-anchor-id="experiment-with-ensembling">Experiment with Ensembling</h2>
+<ul>
+<li>Ensemble is easy with fastai
+<ul>
+<li>Does framework save so much of fiddling so that experimenting with some advanced ideas become easier?</li>
+<li>What is ensembling?</li>
+<li>Is it to combine multiple models and combine their predictions?</li>
+</ul></li>
+<li>The simplest ensemble
+<ul>
+<li>What does a simple ensemble look like?</li>
+<li>How to build, run and predict with 5 models with ease?</li>
+<li>How different are those 5 models? (only initial coefficients are different)</li>
+<li>How to combine their predictions?</li>
+<li>How much improvement does this simple ensemble get us to?</li>
+</ul></li>
+<li>Ways to combine the predictions
+<ul>
+<li>Why not use mode but mean?</li>
+<li>What are 3 ways of combining the predictions?</li>
+<li>Does one is better than the others?</li>
+<li>What’s Jeremy’s suggestion?</li>
+</ul></li>
+</ul>
+</section>
+<section id="how-random-forest-really-work" class="level2">
+<h2 class="anchored" data-anchor-id="how-random-forest-really-work">How Random Forest really work</h2>
+<ul>
+<li>Is this a good place to also learn pandas and numpy?</li>
+<li>Why Random Forest
+<ul>
+<li>What is the history of Random Forest and Jeremy?</li>
+<li>What does Jeremy think of random forest?</li>
+<li>Why random forest is so much easy and better?</li>
+<li>Why the seemingly simple logistic regression is so easy to get wrong?</li>
+</ul></li>
+<li>Pandas categorical function
+<ul>
+<li>How to import all the libraries you need at once?</li>
+<li>How to do fillna with pandas and log with numpy?</li>
+<li>What does panda categorical function do for us?</li>
+<li>What’s friendly display after the function applied?</li>
+<li>What’s the actual data transformation under the hood?</li>
+<li>Key points to make: No dummy variables, Pclass no long needed to be viewed as categories</li>
+</ul></li>
+<li>Binary splits: bases of random forest</li>
+<li>A binary splits on gender</li>
+<li>Build a binary splits model on gender with sklearn</li>
+<li>Build a binary splits model on Ticket prices with sklearn</li>
+<li>Build a score machine on binary splits regardless categorical or continuous
+<ul>
+<li>What is a good split?</li>
+<li>Is it good that within each group their dependent values are similar?</li>
+<li>How to measure the similarity of values within a group? std</li>
+<li>How to compare standard deviations between two groups appropriately? (multiply by size)</li>
+<li>How to calc the score for evaluating the splits based on the value of combined std of two groups?</li>
+</ul></li>
+<li>Automate the score machine on all columns
+<ul>
+<li>How to find the best binary splits by trying out all possible split points of a column?</li>
+</ul></li>
+<li>1R model as the baseline
+<ul>
+<li>What is a random forest? and what is a random forest?</li>
+<li>What is 1r model?</li>
+<li>how good was it in the 90s of ML world?</li>
+<li>Should we always go for complicated models?</li>
+<li>Should we always start with a 1r model as a baseline model for our problem?</li>
+</ul></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    const typesetMath = (el) => {
+      if (window.MathJax) {
+        // MathJax Typeset
+        window.MathJax.typeset([el]);
+      } else if (window.katex) {
+        // KaTeX Render
+        var mathElements = el.getElementsByClassName("math");
+        var macros = [];
+        for (var i = 0; i < mathElements.length; i++) {
+          var texText = mathElements[i].firstChild;
+          if (mathElements[i].tagName == "SPAN") {
+            window.katex.render(texText.data, mathElements[i], {
+              displayMode: mathElements[i].classList.contains('display'),
+              throwOnError: false,
+              macros: macros,
+              fleqn: false
+            });
+          }
+        }
+      }
+    }
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        typesetMath(container);
+        return container.innerHTML
+      } else {
+        typesetMath(note);
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      typesetMath(note);
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../Lessons/Summaries/lesson4.html" class="pagination-link  aria-label=" lesson="" 4"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lesson 4</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../Lessons/Summaries/lesson6.html" class="pagination-link" aria-label="Lesson 6">
+        <span class="nav-page-text">Lesson 6</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

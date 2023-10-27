@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.451">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Practical Deep Learning for Coders - Lesson 4</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../Lessons/Summaries/lesson5.html" rel="next">
+<link href="../../Lessons/Summaries/lesson3.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Practical Deep Learning for Coders - Lesson 4">
+<meta property="og:site_name" content="Practical Deep Learning for Coders">
+<meta name="twitter:title" content="Practical Deep Learning for Coders - Lesson 4">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Practical Deep Learning for Coders</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/fastai/course22"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Lessons/lesson1.html">Part 1</a></li><li class="breadcrumb-item"><a href="../../Lessons/Summaries/lesson1.html">Summaries</a></li><li class="breadcrumb-item"><a href="../../Lessons/Summaries/lesson4.html">Lesson 4</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practical Deep Learning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Part 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1: Getting started</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2: Deployment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3: Neural net foundations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4: Natural Language (NLP)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5: From-scratch model</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6: Random forests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7: Collaborative filtering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8: Convolutions (CNNs)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson8a.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bonus: Data ethics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Summaries</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/Summaries/lesson1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesson 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/Summaries/lesson2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesson 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/Summaries/lesson3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesson 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/Summaries/lesson4.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lesson 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/Summaries/lesson5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesson 5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/Summaries/lesson6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesson 6</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/Summaries/lesson7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesson 7</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/Summaries/lesson8.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lesson 8</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Part 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/part2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part 2 overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson9.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9: Stable Diffusion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10: Diving Deeper</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">11: Matrix multiplication</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">12: Mean shift clustering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson13.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">13: Backpropagation &amp; MLP</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson14.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">14: Backpropagation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson15.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">15: Autoencoders</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson16.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">16: The Learner framework</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson17.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">17: Initialization/normalization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson18.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">18: Accelerated SGD &amp; ResNets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson19.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">19: DDPM and Dropout</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson20.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">20: Mixed Precision</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson21.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">21: DDIM</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson22.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">22: Karras et al (2022)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson23.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">23: Super-resolution</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson24.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">24: Attention &amp; transformers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Lessons/lesson25.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">25: Latent diffusion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://youtu.be/0_BBRNYInx8" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bonus: Lesson 9a</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://youtu.be/mYpjmM7O-30" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bonus: Lesson 9b</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Resources</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Resources/book.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The book</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Resources/forums.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Forums</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Resources/kaggle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kaggle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../Resources/testimonials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Testimonials</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../Lessons/lesson1.html">Part 1</a></li><li class="breadcrumb-item"><a href="../../Lessons/Summaries/lesson1.html">Summaries</a></li><li class="breadcrumb-item"><a href="../../Lessons/Summaries/lesson4.html">Lesson 4</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Lesson 4</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<ul>
+<li>New and Exciting Content</li>
+<li>Why Hugging Face transformer
+<ul>
+<li>Will we in this lecture fine-tune a pretrained NLP model with HF rather than fastai library?</li>
+<li>Why use transformer rather than fastai library?</li>
+<li>Is Jeremy in the process of integrating transformer into fastai library?</li>
+<li>Does transformer has the same layered architecture of fastai? Is it high level enough?</li>
+<li>Why it is a good thing to use a reasonably high level library (not as high as fastai)?</li>
+</ul></li>
+<li>Understand Fine-tuning
+<ul>
+<li>Do we have the foundations to understand the details of fine-tuning now?</li>
+<li>How to understand pretrained model in terms of parameters confidence? 03:51</li>
+<li>Is fine-tuning trying to increase on the parameters which are not confident?</li>
+</ul></li>
+<li>ULMFiT: the first fine-tuned NLP model
+<ul>
+<li>Where this model was first developed and taught?</li>
+<li>Who wrote the paper?</li>
+<li>What’s its impact?</li>
+</ul></li>
+<li>ULMFiT step 1: a language model from scratch
+<ul>
+<li>What is the first language model in step one?</li>
+<li>What’s the model trying to predict? What’s the dataset?</li>
+<li>Why is this task so difficult? 06:10</li>
+<li>How much knowledge does the model have to understand in order to predict?</li>
+<li>How well can this first model predict in step one?</li>
+</ul></li>
+<li>Step 2: fine-tuned the first model on IMDB
+<ul>
+<li>How did Jeremy build the second language model?</li>
+<li>Where did the second model start with? What was the dataset for the second model?</li>
+<li>What was the second model good at predicting?</li>
+</ul></li>
+<li>Step 3: turn a language model to classify</li>
+<li>Labels of language models
+<ul>
+<li>What are the labels for the datasets of the first two models?</li>
+</ul></li>
+<li>Transformer models vs ULMFiT
+<ul>
+<li>When did the transformers first appear?</li>
+<li>What’s transformers models are built to take advantage of?</li>
+<li>What is not transformers trying to predict? (reason in part 2)</li>
+<li>How transformers modified its dataset and what does it predict? 09:41</li>
+<li>Does ULMFiT and Transformers really differ much on what to predict?</li>
+<li>How much different are the 3 steps between ULMFiT and Transformers?</li>
+</ul></li>
+<li>What a model knows
+<ul>
+<li>What can lower and higher layers of parameters/weights learn? 11:08</li>
+<li>What we do to those layers of weights for transfer learning? 13:20</li>
+<li>Zeiler and Fergus paper</li>
+</ul></li>
+<li>NLP beginner on Kaggle competition
+<ul>
+<li>Using a Kaggle competition to introduce NLP for beginners, isn’t it amazing!</li>
+<li>Why we should take Kaggle competition more seriously? 15:06</li>
+<li>What real world tasks can NLP classification do? 15:57</li>
+</ul></li>
+<li>Examine the competition dataset
+<ul>
+<li>What is inside the competition dataset?</li>
+<li>How classificationish does the dataset look like?</li>
+<li>What do we predict about ‘anchor’ and ‘target’?</li>
+<li>What value to predict?</li>
+<li>Why it is not really a straightforward classification?</li>
+<li>What is the use of ‘context’?</li>
+</ul></li>
+<li>Model Strategy
+<ul>
+<li>How to modify the dataset in order to turn a similarity problem into a classification problem?</li>
+<li>Should we always try to solve a problem by turning it into a problem we are familiar with?</li>
+</ul></li>
+<li>Get notebook ready
+<ul>
+<li>When and how to use a GPU on Kaggle?</li>
+<li>Why Jeremy recommend Paperspace over Kaggle as your workstation?</li>
+<li>How easy has Jeremy made it to download Kaggle dataset and work on Paperspace or locally?</li>
+<li>How to do both python and bash in the same jupyter cell?</li>
+</ul></li>
+<li>Get raw dataset into documents
+<ul>
+<li>How to check what inside the dataset folder?</li>
+<li>Why it is important to read Competition data introduction which is often overlooked?</li>
+<li>How to read a csv file with pandas? 24:30</li>
+<li>What are the key four libraries for data science in python? 24:46</li>
+<li>What is the other book besides fastbook recommended by Jeremy? 25:36</li>
+<li>Why you must read it too?</li>
+<li>How to access and show the dataset in dataframe? 26:39</li>
+<li>How to <code>describe</code> the dataset? What does it tell us in general? 27:10</li>
+<li>What did the number of unique data samples mean to Jeremy at first? 27:57</li>
+<li>How to create a single string based on the model strategy? 28:26</li>
+<li>How to refer to a column of a dataframe in reading and writing a column data?</li>
+</ul></li>
+<li>Tokenization: Intro
+<ul>
+<li>How to turn strings/documents into numbers for neuralnet?</li>
+<li>Do we split the string into words first?</li>
+<li>What’s the problem with the Chinese language on words?</li>
+<li>What are vocabularies compared with splitted words?</li>
+<li>What to do with the vocabulary?</li>
+<li>Why we want the vocabulary to be concise not too big?</li>
+<li>What nowadays people prefer rather than words to be included in vocab?</li>
+</ul></li>
+<li>Subwords tokenization by Transformer
+<ul>
+<li>How to turn our dataframe into Hugging Face <code>Dataset</code>?</li>
+<li>What does HF Dataset look like?</li>
+<li>What is tokenization? What does it do?</li>
+<li>Why should we choose a pretrained model before tokenization?</li>
+<li>Why must we use the model’s vocab instead of making our own?</li>
+<li>How similar is HF model hub to TIMM? 33:10</li>
+<li>What Jeremy’s advice on how to use HF model hub?</li>
+<li>Are there some models generally good for most of practical problems? 34:17</li>
+<li>When did NLP models start to be actually very useful? 34:35</li>
+<li>Why we don’t know much about those models which potentially are good for most of things?</li>
+<li>Why should we choose a small model to start with?</li>
+<li>How to get the tokens, vocabs and related info of the pretrained model? 36:04</li>
+<li>How to tokenize a sentence by the model’s style?</li>
+<li>After a document is splitted into a list of vocab, do we turn the list of vocab into a list of numbers? Numericalization 38:30</li>
+<li>Can you get a sense of what subword vs word is from the examples of tokenization</li>
+<li>How to tokenize all the documents with parallel computing? 38:50</li>
+<li>Given the input column is the document, what’s inside the input_id column?</li>
+</ul></li>
+<li>Special treatment to build input?
+<ul>
+<li>Do we need to follow some special treatment when building a document or an input from dataset?</li>
+<li>What about when the document is very long?</li>
+</ul></li>
+<li>Start ULMFiT on large documents
+<ul>
+<li>What ULMFiT is best at doing?</li>
+<li>Why ULMFiT can work on large documents fast and without that much GPU?</li>
+<li>How large is large for a document?</li>
+</ul></li>
+<li>Some obscure documentations of Transformer library</li>
+<li>The most important idea in ML
+<ul>
+<li>Is it the idea of having separate training, testing, validation datasets?</li>
+</ul></li>
+<li>Underfitting vs Overfitting
+<ul>
+<li>How to create a function to plot a polynomial function with a degree variable?</li>
+<li>What are 1st/2nd/3rd degree polynomial?</li>
+<li>What does Jeremy think of sklearn? When to use it? 47:37</li>
+<li>What is underfitting? Why a too-simple model is a problem or is systematically biased? 48:12</li>
+<li>What is overfitting? What does an overfit look like? 48:58</li>
+<li>What is the cause of overfitting?</li>
+<li>It is easy to spot underfitting, but how to filter an overfitting from the function we want?</li>
+</ul></li>
+<li>Validation: avoid overfitting on training set
+<ul>
+<li>How to get a validation dataset and use it?</li>
+<li>Why you need to be careful when use other libraries other than fastai?</li>
+</ul></li>
+<li>How and Why to create a good validation set
+<ul>
+<li>Did you know simply random 20% of dataset as a validation set is not good enough?</li>
+<li>For example, shouldn’t you select validation dataset so that your model can predict the future rather than the past?</li>
+<li>Why is Kaggle competition a great and real-world way to appreciate using validation set to avoid overfitting?</li>
+<li>How validation set can help avoid overfitting in 2 Kaggle competition on real world problems? 54:44</li>
+<li>Watch out when touching cross-validation 56:03</li>
+<li>Why should you be careful when simply using library-ready tools of selecting validation set randomly?</li>
+<li>Validation post by Rachel</li>
+</ul></li>
+<li>Test set: avoid overfitting on validation set
+<ul>
+<li>What is a test set for?</li>
+<li>Why need it when we have a validation set?</li>
+<li>When or how can you overfit on a validation set? or</li>
+<li>Why is validation set not enough to overcome model overfitting?</li>
+<li>Why Kaggle prepares two test sets? or</li>
+<li>Why Kaggle thinks that two test sets are enough to filter overfitting models</li>
+</ul></li>
+<li>Metrics functions vs Loss functions
+<ul>
+<li>How we use validation set to check on the performance of model?</li>
+<li>Will Kaggle competition choose the metrics for you?</li>
+<li>Should the metrics be our loss function?</li>
+<li>What kind of functions you should use as loss function? (bumpy vs smooth)</li>
+<li>So, always be aware: the loss your model tries to beat may not be the same function to rate your model</li>
+<li>Why one metric is always not enough and can cause much problem?</li>
+</ul></li>
+<li>Metrics: you can’t feel it from math
+<ul>
+<li>What is Pearson correlation (r) and how to interpret it?</li>
+<li>Which can teach you how r behave, its math function or its performance on datasets?</li>
+<li>Should we a plot with a 1000 random data point or a plot with the entire a million data points?</li>
+<li>How to get correlation coefficient for every variable to every other variable? 1:06:27</li>
+<li>How to read the correlation coefficient matrix?</li>
+<li>How to get a single correlation coefficient between two things?</li>
+<li>How to tell how good is a correlation coefficient number? 1:07:45</li>
+<li>What are the things to spot? (tendency line, variation around the line, outliers)</li>
+<li>How to create transparency on the plot?</li>
+<li>How can we tell from another example that r is very sensitive to outliers? 1:09:47</li>
+<li>How much can removing or mess up a few outliers really affect your scores on r? or</li>
+<li>Why do you have to be careful with every row of data when dealing with r?</li>
+<li>Can we know how good is r = 0.34 or r = -0.2 without a plot?</li>
+<li>Don’t forget to get the data format right for HF</li>
+</ul></li>
+<li>HF train-validation split
+<ul>
+<li>How to do the random split with HF?</li>
+<li>Will Jeremy talk about proper split in another notebook?</li>
+</ul></li>
+<li>Training a model
+<ul>
+<li>What to use for training a model in HF?</li>
+<li>What is batch and batch size?</li>
+<li>How large should a batch size be?</li>
+<li>How to find a good learning rate? (details in a future lecture)</li>
+<li>Where to prepare all the training arguments in HF library?</li>
+<li>Which type of tasks do we use for picking the model?</li>
+<li>How to create the learner or trainer after model?</li>
+<li>How to train?</li>
+<li>Why is the result on metrics so good right from the first epoch?</li>
+</ul></li>
+<li>Dealing with outliers
+<ul>
+<li>Should we get a second analysis for the outliers rather than simply removing them?</li>
+<li>What outliers really are in the real world?</li>
+<li>Doesn’t outliers usually tell us a lot of surprisingly useful info than in the limiting statistical sense?</li>
+<li>What is Jeremy’s advice on outliers?</li>
+</ul></li>
+<li>Predict and submit
+<ul>
+<li>How to do prediction with HF?</li>
+<li>Should we always check the prediction output as well as the test set input?</li>
+<li>What is the common problem with the output? (proper solution may be in the next lecture)</li>
+<li>What is the easy solution?</li>
+<li>How to submit your answer to Kaggle?</li>
+</ul></li>
+<li>Huge opportunities in research and business</li>
+<li>Misuses of NLP
+<ul>
+<li>Can NLP chatbots can create 99% of online chat which almost non-distinguishable from real humans?</li>
+<li>Can GTP-3 create even longer and more sophisticated prose which is even more human-like?</li>
+<li>How machined generated public opinions can influence public policies or laws?</li>
+</ul></li>
+<li>Issues on <code>num_labels</code> in HF library</li>
+</ul>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    const typesetMath = (el) => {
+      if (window.MathJax) {
+        // MathJax Typeset
+        window.MathJax.typeset([el]);
+      } else if (window.katex) {
+        // KaTeX Render
+        var mathElements = el.getElementsByClassName("math");
+        var macros = [];
+        for (var i = 0; i < mathElements.length; i++) {
+          var texText = mathElements[i].firstChild;
+          if (mathElements[i].tagName == "SPAN") {
+            window.katex.render(texText.data, mathElements[i], {
+              displayMode: mathElements[i].classList.contains('display'),
+              throwOnError: false,
+              macros: macros,
+              fleqn: false
+            });
+          }
+        }
+      }
+    }
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        typesetMath(container);
+        return container.innerHTML
+      } else {
+        typesetMath(note);
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      typesetMath(note);
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../Lessons/Summaries/lesson3.html" class="pagination-link  aria-label=" lesson="" 3"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lesson 3</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../Lessons/Summaries/lesson5.html" class="pagination-link" aria-label="Lesson 5">
+        <span class="nav-page-text">Lesson 5</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/fastai/course22-web/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
