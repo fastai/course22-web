@@ -93,7 +93,7 @@ The lesson also covers finite differencing, analytic derivatives, autoencoders, 
 ## Useful background on fast.ai courses
 
 - [Homework](https://forums.fast.ai/t/did-you-do-the-homework/66034)
-- [Summaries + Things Jeremy Says to do + Qs](/t/podcast-writeup-summaries-things-jeremy-says-to-do-qs/66194)
+- [Summaries + Things Jeremy Says to do + Qs](https://forums.fast.ai/t/podcast-writeup-summaries-things-jeremy-says-to-do-qs/66194)
 - Fastai: A Layered API for Deep Learning paper: [Information Journal](https://www.mdpi.com/2078-2489/11/2/108) or [arxiv](https://arxiv.org/abs/2002.04688) or [fast.ai](https://www.fast.ai/2020/02/13/fastai-A-Layered-API-for-Deep-Learning/)
 - [Providing a Good Education in Deep Learning](https://www.fast.ai/2016/10/08/teaching-philosophy/): fast.ai teaching philosophy
 - ["How not to do fastai” ](https://medium.com/@init_27/how-not-to-do-fast-ai-or-any-ml-mooc-3d34a7e0ab8c)
