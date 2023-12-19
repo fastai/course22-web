@@ -94,7 +94,7 @@ Previous fast.ai courses have been studied by hundreds of thousands of students,
 
 It doesn't matter if you don't come from a technical or a mathematical background (though it's okay if you do too!); we wrote this course to make deep learning accessible to as many people as possible. The only prerequisite is that you know how to code (a year of experience is enough), preferably in Python, and that you have at least followed a high school math course.
 
-Deep learning is a computer technique to extract and transform data–-with use cases ranging from human speech recognition to animal imagery classification–-by using multiple layers of neural networks. A lot of people assume that you need all kinds of hard-to-find stuff to get great results with deep learning, but as you'll see in this course, those people are wrong. Here's a few things you *absolutely don't need* to do world-class deep learning:
+Deep learning is a computer technique to extract and transform data–-with use cases ranging from human speech recognition to animal imagery classification–-by using multiple layers of neural networks. A lot of people assume that you need all kinds of hard-to-find stuff to get great results with deep learning, but as you'll see in this course, those people are wrong. Here are a few things you *absolutely don't need* to do world-class deep learning:
 
 | Myth (don't need) | Truth
 |---|---|
@@ -114,9 +114,9 @@ In this course, you'll be using [PyTorch](https://pytorch.org/), [fastai](https:
 
 We've completed hundreds of machine learning projects using dozens of different packages, and many different programming languages. At fast.ai, we have written courses using most of the main deep learning and machine learning packages used today. We spent over a thousand hours testing PyTorch before deciding that we would use it for future courses, software development, and research. PyTorch is now the world's fastest-growing deep learning library and is already used for most research papers at top conferences.
 
-PyTorch works best as a low-level foundation library, providing the basic operations for higher-level functionality. The fastai library one of the most popular libraries for adding this higher-level functionality on top of PyTorch. In this course, as we go deeper and deeper into the foundations of deep learning, we will also go deeper and deeper into the layers of fastai.
+PyTorch works best as a low-level foundation library, providing the basic operations for higher-level functionality. The fastai library is one of the most popular libraries for adding this higher-level functionality on top of PyTorch. In this course, as we go deeper and deeper into the foundations of deep learning, we will also go deeper and deeper into the layers of fastai.
 
-Transformers is a popular library focused on natural language processing (NLP) using *transformers models*. In the course you'll see how to create a cutting-edge transfomers model using this library to detect similar concepts in patent applications.
+Transformers is a popular library focused on natural language processing (NLP) using *transformers models*. In the course you'll see how to create a cutting-edge transformers model using this library to detect similar concepts in patent applications.
 
 :::{.callout-tip}
 ## Get started
@@ -185,7 +185,7 @@ Each video is designed to go with various chapters from the book. The entirety o
 
 We'll mainly use [Kaggle Notebooks](https://www.kaggle.com/docs/notebooks) and [Paperspace Gradient](https://gradient.run/notebooks) because we've found they work really well for this course, and have good free options. We also will do some parts of the course on your own laptop. (If you don't have a Paperspace account yet, sign up with [this link](https://console.paperspace.com/signup?R=lg6rnx) to get $10 credit -- and we get a credit too.)
 
-We strongly suggest *not* using your own computer for training models in this course, unless you're very experienced with Linux system adminstration and handling GPU drivers, CUDA, and so forth.
+We strongly suggest *not* using your own computer for training models in this course, unless you're very experienced with Linux system administration and handling GPU drivers, CUDA, and so forth.
 
 If you need help, there's a [wonderful online community](https://forums.fast.ai/c/p1v5/54) ready to help you at forums.fast.ai. Before asking a question on the forums, search carefully to see if your question has been answered before.
 
